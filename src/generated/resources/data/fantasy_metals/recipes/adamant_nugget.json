@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fantasy_metals:adamant_ingot"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "fantasy_metals:adamant_nugget"
+  }
+}

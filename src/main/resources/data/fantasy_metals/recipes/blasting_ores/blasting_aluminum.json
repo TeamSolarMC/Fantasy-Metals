@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": [
+    {
+      "tag": "forge:ores/mythril"
+    }
+  ],
+  "result": "fantasy_metals:mythril_ingot",
+  "experience": 0.7,
+  "cookingtime": 100
+}

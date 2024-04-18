@@ -1,0 +1,6 @@
+// 1.20.1	2024-04-18T23:44:27.7988594	Tags for minecraft:block mod id fantasy_metals
+d04b84f26e9a627b2b89270217ee80de2138091b data/forge/tags/blocks/ores.json
+20daae83f4c5192ee72f14a64dc7db869c14d881 data/forge/tags/blocks/storage_blocks.json
+2968fa93960131cf892e01f31ba9a8e1fbc1e82b data/minecraft/tags/blocks/mineable/pickaxe.json
+cb39db3cccd1e0809bbd6422b2433cd7fb8b5e81 data/minecraft/tags/blocks/needs_diamond_tool.json
+e3447f8127448e5c893351716dd477958b8cdfc8 data/minecraft/tags/blocks/needs_iron_tool.json

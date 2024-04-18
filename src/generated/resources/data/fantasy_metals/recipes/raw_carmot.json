@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "carmot",
+  "key": {
+    "#": {
+      "item": "fantasy_metals:raw_carmot"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "fantasy_metals:raw_carmot_block"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "fantasy_metals:mythril_ingot"
+    }
+  },
+  "pattern": [
+    "   ",
+    "A A",
+    "A A"
+  ],
+  "result": {
+    "item": "fantasy_metals:mythril_boots"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": [
+    {
+      "tag": "forge:ores/carmot"
+    }
+  ],
+  "result": "fantasy_metals:carmot_ingot",
+  "experience": 0.7,
+  "cookingtime": 100
+}

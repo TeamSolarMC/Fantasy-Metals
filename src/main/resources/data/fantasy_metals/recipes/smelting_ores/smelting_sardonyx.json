@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": [
+    {
+      "tag": "forge:ores/sardonyx"
+    }
+  ],
+  "result": "fantasy_metals:sardonyx",
+  "experience": 0.7,
+  "cookingtime": 100
+}

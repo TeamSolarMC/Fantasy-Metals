@@ -1,0 +1,40 @@
+
+modLoader="javafml"
+
+loaderVersion="${loader_version_range}"
+
+license="MIT"
+
+[[mods]]
+
+modId="fantasy_metals"
+
+version="1.0.0"
+
+displayName="Fantasy Metals"
+
+authors="IndEvo Studio"
+
+
+description='''Mod adding a variety of fantasy ores and gems, toolsets and armor.'''
+
+[[dependencies.fantasy_metals]]
+
+modId="forge"
+
+mandatory=true
+
+versionRange="${forge_version_range}"
+
+ordering="NONE"
+
+side="BOTH"
+
+[[dependencies.fantasy_metals]]
+modId="minecraft"
+mandatory=true
+
+versionRange="${minecraft_version_range}"
+ordering="NONE"
+side="BOTH"
+

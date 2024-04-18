@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sardonyx": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fantasy_metals:sardonyx"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fantasy_metals:sardonyx_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_sardonyx",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fantasy_metals:sardonyx_block"
+    ]
+  },
+  "sends_telemetry_event": false
+}

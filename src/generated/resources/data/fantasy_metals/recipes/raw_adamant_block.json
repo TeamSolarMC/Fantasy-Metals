@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "adamant",
+  "ingredients": [
+    {
+      "item": "fantasy_metals:raw_adamant_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "fantasy_metals:raw_adamant"
+  }
+}

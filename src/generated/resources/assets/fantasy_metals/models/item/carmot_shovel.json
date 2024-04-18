@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "fantasy_metals:item/carmot_shovel"
+  }
+}

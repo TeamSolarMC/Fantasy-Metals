@@ -1,0 +1,32 @@
+{
+  "values": [
+    "fantasy_metals:mythril_block",
+    "fantasy_metals:raw_mythril_block",
+    "fantasy_metals:mythril_ore",
+    "fantasy_metals:deepslate_mythril_ore",
+    "fantasy_metals:adamant_block",
+    "fantasy_metals:raw_adamant_block",
+    "fantasy_metals:adamant_ore",
+    "fantasy_metals:carmot_block",
+    "fantasy_metals:raw_carmot_block",
+    "fantasy_metals:carmot_ore",
+    "fantasy_metals:deepslate_carmot_ore",
+    "fantasy_metals:sardonyx_ore",
+    "fantasy_metals:deepslate_sardonyx_ore",
+    "fantasy_metals:alexandrite_ore",
+    "fantasy_metals:deepslate_alexandrite_ore",
+    "fantasy_metals:sardonyx_block",
+    "fantasy_metals:alexandrite_block",
+    "fantasy_metals:tsavorite_block",
+    "fantasy_metals:tanzanite_block",
+    "fantasy_metals:black_opal_block",
+    "fantasy_metals:tanzanite_ore",
+    "fantasy_metals:black_opal_ore",
+    "fantasy_metals:tsavorite_ore",
+    "fantasy_metals:deepslate_tsavorite_ore",
+    "fantasy_metals:orichalcum_block",
+    "fantasy_metals:raw_orichalcum_block",
+    "fantasy_metals:orichalcum_ore",
+    "fantasy_metals:deepslate_orichalcum_ore"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "fantasy_metals:mythril_ingot"
+    },
+    "C": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " AA",
+    " C ",
+    " C "
+  ],
+  "result": {
+    "item": "fantasy_metals:mythril_hoe"
+  },
+  "show_notification": true
+}

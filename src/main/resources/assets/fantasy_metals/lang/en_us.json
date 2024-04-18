@@ -1,0 +1,113 @@
+{
+  "item.fantasy_metals.mythril_ingot": "Mythril Ingot",
+  "item.fantasy_metals.mythril_nugget": "Mythril Nugget",
+  "item.fantasy_metals.raw_mythril": "Raw Mythril",
+
+  "item.fantasy_metals.adamant_ingot": "Adamant Ingot",
+  "item.fantasy_metals.adamant_nugget": "Adamant Nugget",
+  "item.fantasy_metals.raw_adamant": "Raw Adamant",
+
+  "item.fantasy_metals.orichalcum_ingot": "Orichalcum Ingot",
+  "item.fantasy_metals.orichalcum_nugget": "Orichalcum Nugget",
+  "item.fantasy_metals.raw_orichalcum": "Raw Orichalcum",
+
+  "item.fantasy_metals.carmot_ingot": "Carmot Ingot",
+  "item.fantasy_metals.carmot_nugget": "Carmot Nugget",
+  "item.fantasy_metals.raw_carmot": "Raw Carmot",
+
+  "item.fantasy_metals.sardonyx": "Sardonyx",
+
+  "item.fantasy_metals.alexandrite": "Alexandrite",
+
+  "item.fantasy_metals.tanzanite": "Tanzanite",
+
+  "item.fantasy_metals.black_opal": "Black Opal",
+
+  "item.fantasy_metals.tsavorite": "Tsavorite",
+
+  "item.fantasy_metals.mythril_sword": "Mythril Sword",
+  "item.fantasy_metals.mythril_pickaxe": "Mythril Pickaxe",
+  "item.fantasy_metals.mythril_shovel": "Mythril Shovel",
+  "item.fantasy_metals.mythril_axe": "Mythril Axe",
+  "item.fantasy_metals.mythril_hoe": "Mythril Hoe",
+
+  "item.fantasy_metals.mythril_helmet": "Mythril Helmet",
+  "item.fantasy_metals.mythril_chestplate": "Mythril Chestplate",
+  "item.fantasy_metals.mythril_leggings": "Mythril Leggings",
+  "item.fantasy_metals.mythril_boots": "Mythril Boots",
+
+  "item.fantasy_metals.adamant_sword": "Adamant Sword",
+  "item.fantasy_metals.adamant_pickaxe": "Adamant Pickaxe",
+  "item.fantasy_metals.adamant_shovel": "Adamant Shovel",
+  "item.fantasy_metals.adamant_axe": "Adamant Axe",
+  "item.fantasy_metals.adamant_hoe": "Adamant Hoe",
+
+  "item.fantasy_metals.adamant_helmet": "Adamant Helmet",
+  "item.fantasy_metals.adamant_chestplate": "Adamant Chestplate",
+  "item.fantasy_metals.adamant_leggings": "Adamant Leggings",
+  "item.fantasy_metals.adamant_boots": "Adamant Boots",
+
+  "item.fantasy_metals.orichalcum_sword": "Orichalcum Sword",
+  "item.fantasy_metals.orichalcum_pickaxe": "Orichalcum Pickaxe",
+  "item.fantasy_metals.orichalcum_shovel": "Orichalcum Shovel",
+  "item.fantasy_metals.orichalcum_axe": "Orichalcum Axe",
+  "item.fantasy_metals.orichalcum_hoe": "Orichalcum Hoe",
+
+  "item.fantasy_metals.orichalcum_helmet": "Orichalcum Helmet",
+  "item.fantasy_metals.orichalcum_chestplate": "Orichalcum Chestplate",
+  "item.fantasy_metals.orichalcum_leggings": "Orichalcum Leggings",
+  "item.fantasy_metals.orichalcum_boots": "Orichalcum Boots",
+
+  "item.fantasy_metals.carmot_sword": "Carmot Sword",
+  "item.fantasy_metals.carmot_pickaxe": "Carmot Pickaxe",
+  "item.fantasy_metals.carmot_shovel": "Carmot Shovel",
+  "item.fantasy_metals.carmot_axe": "Carmot Axe",
+  "item.fantasy_metals.carmot_hoe": "Carmot Hoe",
+
+  "item.fantasy_metals.carmot_helmet": "Carmot Helmet",
+  "item.fantasy_metals.carmot_chestplate": "Carmot Chestplate",
+  "item.fantasy_metals.carmot_leggings": "Carmot Leggings",
+  "item.fantasy_metals.carmot_boots": "Carmot Boots",
+
+
+
+  "block.fantasy_metals.mythril_ore": "Mythril Ore",
+  "block.fantasy_metals.deepslate_mythril_ore": "Deepslate Mythril Ore",
+  "block.fantasy_metals.mythril_block": "Mythril Block",
+  "block.fantasy_metals.raw_mythril_block": "Raw Mythril Block",
+
+  "block.fantasy_metals.orichalcum_ore": "Orichalcum Ore",
+  "block.fantasy_metals.deepslate_orichalcum_ore": "Deepslate Orichalcum Ore",
+  "block.fantasy_metals.orichalcum_block": "Orichalcum Block",
+  "block.fantasy_metals.raw_orichalcum_block": "Raw Orichalcum Block",
+
+  "block.fantasy_metals.carmot_ore": "Carmot Ore",
+  "block.fantasy_metals.carmot_block": "Carmot Block",
+  "block.fantasy_metals.raw_carmot_block": "Raw Carmot Block",
+
+  "block.fantasy_metals.adamant_ore": "Adamant Ore",
+  "block.fantasy_metals.adamant_block": "Adamant Block",
+  "block.fantasy_metals.raw_adamant_block": "Raw Adamant Block",
+
+  "block.fantasy_metals.sardonyx_ore": "Sardonyx Ore",
+  "block.fantasy_metals.deepslate_sardonyx_ore": "Deepslate Sardonyx Ore",
+
+  "block.fantasy_metals.alexandrite_ore": "Alexandrite Ore",
+  "block.fantasy_metals.deepslate_alexandrite_ore": "Deepslate Alexandrite Ore",
+
+  "block.fantasy_metals.tsavorite_ore": "Tsavorite Ore",
+  "block.fantasy_metals.deepslate_tsavorite_ore": "Deepslate Tsavorite Ore",
+
+  "block.fantasy_metals.tanzanite_ore": "Tanzanite Ore",
+
+  "block.fantasy_metals.black_opal_ore": "Black Opal Ore",
+
+  "block.fantasy_metals.sardonyx_block": "Sardonyx Block",
+  "block.fantasy_metals.alexandrite_block": "Alexandrite Block",
+  "block.fantasy_metals.tsavorite_block": "Tsavorite Block",
+  "block.fantasy_metals.tanzanite_block": "Tanzanite Block",
+  "block.fantasy_metals.black_opal_block": "Black Opal Block",
+
+
+  "creativetab.fantasy_metals_tab": "Fantasy Metals"
+}

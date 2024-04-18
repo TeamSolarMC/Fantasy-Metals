@@ -1,0 +1,112 @@
+{
+  "item.fantasy_metals.mythril_ingot": "Мифриловый слиток",
+  "item.fantasy_metals.mythril_nugget": "Кусочек мифрила",
+  "item.fantasy_metals.raw_mythril": "Рудной мифрил",
+
+  "item.fantasy_metals.adamant_ingot": "Адамантитовый слиток",
+  "item.fantasy_metals.adamant_nugget": "Кусочек адамантия",
+  "item.fantasy_metals.raw_adamant": "Рудной адамантий",
+
+  "item.fantasy_metals.orichalcum_ingot": "Орихалковый слиток",
+  "item.fantasy_metals.orichalcum_nugget": "Кусочек орихалка",
+  "item.fantasy_metals.raw_orichalcum": "Рудной орихалк",
+
+  "item.fantasy_metals.carmot_ingot": "Кармотовый слиток",
+  "item.fantasy_metals.carmot_nugget": "Кусочек кармота",
+  "item.fantasy_metals.raw_carmot": "Рудной кармот",
+
+  "item.fantasy_metals.sardonyx": "Сардоникс",
+
+  "item.fantasy_metals.alexandrite": "Александрит",
+
+  "item.fantasy_metals.tanzanite": "Танзанит",
+
+  "item.fantasy_metals.black_opal": "Чёрный опал",
+
+  "item.fantasy_metals.tsavorite": "Цаворит",
+
+  "item.fantasy_metals.mythril_sword": "Мифриловый меч",
+  "item.fantasy_metals.mythril_pickaxe": "Мифроловая кирка",
+  "item.fantasy_metals.mythril_shovel": "Мифриловая лопата",
+  "item.fantasy_metals.mythril_axe": "Мифриловый топор",
+  "item.fantasy_metals.mythril_hoe": "Мифриловая мотыга",
+
+  "item.fantasy_metals.mythril_helmet": "Мифриловый шлем",
+  "item.fantasy_metals.mythril_chestplate": "Мифриловый нагрудник",
+  "item.fantasy_metals.mythril_leggings": "Мифриловые поножи",
+  "item.fantasy_metals.mythril_boots": "Мифриловык ботинки",
+
+  "item.fantasy_metals.adamant_sword": "Адамантитовый меч",
+  "item.fantasy_metals.adamant_pickaxe": "Адамантитовая кирка",
+  "item.fantasy_metals.adamant_shovel": "Адамантитовая лопата",
+  "item.fantasy_metals.adamant_axe": "Адамантитовый топор",
+  "item.fantasy_metals.adamant_hoe": "Адамантитовая мотыга",
+
+  "item.fantasy_metals.adamant_helmet": "Адамантитовый шлем",
+  "item.fantasy_metals.adamant_chestplate": "Адамантитовый нагрудник",
+  "item.fantasy_metals.adamant_leggings": "Адамантитовые поножи",
+  "item.fantasy_metals.adamant_boots": "Адамантитовые ботинки",
+
+  "item.fantasy_metals.orichalcum_sword": "Орихалковый меч",
+  "item.fantasy_metals.orichalcum_pickaxe": "Орихалковая кирка",
+  "item.fantasy_metals.orichalcum_shovel": "Орихалковая лопата",
+  "item.fantasy_metals.orichalcum_axe": "Орихалковый топор",
+  "item.fantasy_metals.orichalcum_hoe": "Орихалковая мотыга",
+
+  "item.fantasy_metals.orichalcum_helmet": "Орихалковый шлем",
+  "item.fantasy_metals.orichalcum_chestplate": "Орихалковый нагрудник",
+  "item.fantasy_metals.orichalcum_leggings": "Орихалковые поножи",
+  "item.fantasy_metals.orichalcum_boots": "Орихалковые ботинки",
+
+  "item.fantasy_metals.carmot_sword": "Кармотовый меч",
+  "item.fantasy_metals.carmot_pickaxe": "Кармотовая кирка",
+  "item.fantasy_metals.carmotm_shovel": "Кармотовая лопата",
+  "item.fantasy_metals.carmot_axe": "Кармотовый топор",
+  "item.fantasy_metals.carmot_hoe": "Кармотовая мотыга",
+
+  "item.fantasy_metals.carmot_helmet": "Кармотовый шлем",
+  "item.fantasy_metals.carmot_chestplate": "Кармотовый нагрудник",
+  "item.fantasy_metals.carmot_leggings": "Кармотовые поножи",
+  "item.fantasy_metals.carmot_boots": "Кармотовые ботинки",
+
+
+  "block.fantasy_metals.mythril_ore": "Мифриловая руда",
+  "block.fantasy_metals.deepslate_mythril_ore": "Мифрилоносный глубинный сланец",
+  "block.fantasy_metals.mythril_block": "Мифриловый блок",
+  "block.fantasy_metals.raw_mythril_block": "Блок рудного мифрила",
+
+  "block.fantasy_metals.orichalcum_ore": "Орихалковая руда",
+  "block.fantasy_metals.deepslate_orichalcum_ore": "Орихалконосный глубинный сланец",
+  "block.fantasy_metals.orichalcum_block": "Орихалковый блок",
+  "block.fantasy_metals.raw_orichalcum_block": "Блок рудного орихалка",
+
+  "block.fantasy_metals.carmot_ore": "Кармотовая руда",
+  "block.fantasy_metals.carmot_block": "Кармотовый блок",
+  "block.fantasy_metals.raw_carmot_block": "Блок рудного кармота",
+
+  "block.fantasy_metals.adamant_ore": "Адамантитовая руда",
+  "block.fantasy_metals.adamant_block": "Адамантитовый блок",
+  "block.fantasy_metals.raw_adamant_block": "Блок рудного адамантита",
+
+  "block.fantasy_metals.sardonyx_ore": "Сардониксовая руда",
+  "block.fantasy_metals.deepslate_sardonyx_ore": "Сардониксоносный глубинный сланец",
+
+  "block.fantasy_metals.alexandrite_ore": "Александритовая руда",
+  "block.fantasy_metals.deepslate_alexandrite_ore": "Александритоносный глубинный сланец",
+
+  "block.fantasy_metals.tsavorite_ore": "Цаваритовая руда",
+  "block.fantasy_metals.deepslate_tsavorite_ore": "Цаваритоносный глубинный сланец",
+
+  "block.fantasy_metals.tanzanite_ore": "Танзанитовая руда",
+
+  "block.fantasy_metals.black_opal_ore": "Руда чёрного опала",
+
+  "block.fantasy_metals.sardonyx_block": "Сардониксовый блок",
+  "block.fantasy_metals.alexandrite_block": "Александритовый блок",
+  "block.fantasy_metals.tsavorite_block": "Цаваритовый блок",
+  "block.fantasy_metals.tanzanite_block": "Танзанитовый блок",
+  "block.fantasy_metals.black_opal_block": "Блок чёрного опала",
+
+
+  "creativetab.fantasy_metals_tab": "Fantasy Metals"
+}

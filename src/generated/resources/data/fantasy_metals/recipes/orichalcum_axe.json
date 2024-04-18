@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "fantasy_metals:orichalcum_ingot"
+    },
+    "C": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "AA ",
+    "AC ",
+    " C "
+  ],
+  "result": {
+    "item": "fantasy_metals:orichalcum_axe"
+  },
+  "show_notification": true
+}
