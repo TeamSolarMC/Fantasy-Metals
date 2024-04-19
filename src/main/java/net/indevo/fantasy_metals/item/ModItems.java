@@ -59,15 +59,15 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> MYTHRIL_SWORD = ITEMS.register("mythril_sword",
-            () -> new SwordItem(ModToolTiers.MYTHRIL, 3, -2.1F, new Item.Properties().durability(256)));
+            () -> new SwordItem(ModToolTiers.MYTHRIL, 3, -2.1F, new Item.Properties().durability(937)));
     public static final RegistryObject<Item> MYTHRIL_PICKAXE = ITEMS.register("mythril_pickaxe",
-            () -> new PickaxeItem(ModToolTiers.MYTHRIL, 1, -2.5F, new Item.Properties().durability(256)));
+            () -> new PickaxeItem(ModToolTiers.MYTHRIL, 1, -2.5F, new Item.Properties().durability(937)));
     public static final RegistryObject<Item> MYTHRIL_SHOVEL = ITEMS.register("mythril_shovel",
-            () -> new ShovelItem(ModToolTiers.MYTHRIL, 1.5F, -2.7F, new Item.Properties().durability(256)));
+            () -> new ShovelItem(ModToolTiers.MYTHRIL, 1.5F, -2.7F, new Item.Properties().durability(937)));
     public static final RegistryObject<Item> MYTHRIL_AXE = ITEMS.register("mythril_axe",
-            () -> new AxeItem(ModToolTiers.MYTHRIL, 5.0F, -2.7F, new Item.Properties().durability(256)));
+            () -> new AxeItem(ModToolTiers.MYTHRIL, 5.0F, -2.7F, new Item.Properties().durability(937)));
     public static final RegistryObject<Item> MYTHRIL_HOE = ITEMS.register("mythril_hoe",
-            () -> new HoeItem(ModToolTiers.MYTHRIL, -3, 0.0F, new Item.Properties().durability(256)));
+            () -> new HoeItem(ModToolTiers.MYTHRIL, -3, 0.0F, new Item.Properties().durability(937)));
 
     public static final RegistryObject<Item> MYTHRIL_HELMET = ITEMS.register("mythril_helmet",
             () -> new ArmorItem(ModArmorMaterials.MYTHRIL, ArmorItem.Type.HELMET, new Item.Properties()));
@@ -79,15 +79,15 @@ public class ModItems {
             () -> new ArmorItem(ModArmorMaterials.MYTHRIL, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final RegistryObject<Item> ADAMANT_SWORD = ITEMS.register("adamant_sword",
-            () -> new SwordItem(ModToolTiers.ADAMANT, 3, -2.7F, new Item.Properties().durability(256)));
+            () -> new SwordItem(ModToolTiers.ADAMANT, 3, -2.7F, new Item.Properties().durability(3626)));
     public static final RegistryObject<Item> ADAMANT_PICKAXE = ITEMS.register("adamant_pickaxe",
-            () -> new PickaxeItem(ModToolTiers.ADAMANT, 1, -3.1F, new Item.Properties().durability(256)));
+            () -> new PickaxeItem(ModToolTiers.ADAMANT, 1, -3.1F, new Item.Properties().durability(3626)));
     public static final RegistryObject<Item> ADAMANT_SHOVEL = ITEMS.register("adamant_shovel",
-            () -> new ShovelItem(ModToolTiers.ADAMANT, 1.5F, -3.3F, new Item.Properties().durability(256)));
+            () -> new ShovelItem(ModToolTiers.ADAMANT, 1.5F, -3.3F, new Item.Properties().durability(3626)));
     public static final RegistryObject<Item> ADAMANT_AXE = ITEMS.register("adamant_axe",
-            () -> new AxeItem(ModToolTiers.ADAMANT, 5.0F, -3.3F, new Item.Properties().durability(256)));
+            () -> new AxeItem(ModToolTiers.ADAMANT, 5.0F, -3.3F, new Item.Properties().durability(3626)));
     public static final RegistryObject<Item> ADAMANT_HOE = ITEMS.register("adamant_hoe",
-            () -> new HoeItem(ModToolTiers.ADAMANT, -4, 0.0F, new Item.Properties().durability(256)));
+            () -> new HoeItem(ModToolTiers.ADAMANT, -4, 0.0F, new Item.Properties().durability(3626)));
 
     public static final RegistryObject<Item> ADAMANT_HELMET = ITEMS.register("adamant_helmet",
             () -> new ArmorItem(ModArmorMaterials.ADAMANT, ArmorItem.Type.HELMET, new Item.Properties()));
@@ -99,15 +99,15 @@ public class ModItems {
             () -> new ArmorItem(ModArmorMaterials.ADAMANT, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final RegistryObject<Item> ORICHALCUM_SWORD = ITEMS.register("orichalcum_sword",
-            () -> new SwordItem(ModToolTiers.ORICHALCUM, 3, -2.4F, new Item.Properties().durability(256)));
+            () -> new SwordItem(ModToolTiers.ORICHALCUM, 3, -2.4F, new Item.Properties().durability(439)));
     public static final RegistryObject<Item> ORICHALCUM_PICKAXE = ITEMS.register("orichalcum_pickaxe",
-            () -> new PickaxeItem(ModToolTiers.ORICHALCUM, 1, -2.8F, new Item.Properties().durability(256)));
+            () -> new PickaxeItem(ModToolTiers.ORICHALCUM, 1, -2.8F, new Item.Properties().durability(439)));
     public static final RegistryObject<Item> ORICHALCUM_SHOVEL = ITEMS.register("orichalcum_shovel",
-            () -> new ShovelItem(ModToolTiers.ORICHALCUM, 1.5F, -3.0F, new Item.Properties().durability(256)));
+            () -> new ShovelItem(ModToolTiers.ORICHALCUM, 1.5F, -3.0F, new Item.Properties().durability(439)));
     public static final RegistryObject<Item> ORICHALCUM_AXE = ITEMS.register("orichalcum_axe",
-            () -> new AxeItem(ModToolTiers.ORICHALCUM, 5.0F, -3.0F, new Item.Properties().durability(256)));
+            () -> new AxeItem(ModToolTiers.ORICHALCUM, 5.0F, -3.0F, new Item.Properties().durability(439)));
     public static final RegistryObject<Item> ORICHALCUM_HOE = ITEMS.register("orichalcum_hoe",
-            () -> new HoeItem(ModToolTiers.ORICHALCUM, -4, -0.0F, new Item.Properties().durability(256)));
+            () -> new HoeItem(ModToolTiers.ORICHALCUM, -4, -0.0F, new Item.Properties().durability(439)));
 
     public static final RegistryObject<Item> ORICHALCUM_HELMET = ITEMS.register("orichalcum_helmet",
             () -> new ArmorItem(ModArmorMaterials.ORICHALCUM, ArmorItem.Type.HELMET, new Item.Properties()));
@@ -119,15 +119,15 @@ public class ModItems {
             () -> new ArmorItem(ModArmorMaterials.ORICHALCUM, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     public static final RegistryObject<Item> CARMOT_SWORD = ITEMS.register("carmot_sword",
-            () -> new SwordItem(ModToolTiers.CARMOT, 3, -2.4F, new Item.Properties().durability(256)));
+            () -> new SwordItem(ModToolTiers.CARMOT, 3, -2.4F, new Item.Properties().durability(666)));
     public static final RegistryObject<Item> CARMOT_PICKAXE = ITEMS.register("carmot_pickaxe",
-            () -> new PickaxeItem(ModToolTiers.CARMOT, 1, -2.8F, new Item.Properties().durability(256)));
+            () -> new PickaxeItem(ModToolTiers.CARMOT, 1, -2.8F, new Item.Properties().durability(666)));
     public static final RegistryObject<Item> CARMOT_SHOVEL = ITEMS.register("carmot_shovel",
-            () -> new ShovelItem(ModToolTiers.CARMOT, 1.5F, -3.0F, new Item.Properties().durability(256)));
+            () -> new ShovelItem(ModToolTiers.CARMOT, 1.5F, -3.0F, new Item.Properties().durability(666)));
     public static final RegistryObject<Item> CARMOT_AXE = ITEMS.register("carmot_axe",
-            () -> new AxeItem(ModToolTiers.CARMOT, 6.0F, -3.1F, new Item.Properties().durability(256)));
+            () -> new AxeItem(ModToolTiers.CARMOT, 6.0F, -3.1F, new Item.Properties().durability(666)));
     public static final RegistryObject<Item> CARMOT_HOE = ITEMS.register("carmot_hoe",
-            () -> new HoeItem(ModToolTiers.CARMOT, -2, -1.0F, new Item.Properties().durability(256)));
+            () -> new HoeItem(ModToolTiers.CARMOT, -2, -1.0F, new Item.Properties().durability(666)));
 
     public static final RegistryObject<Item> CARMOT_HELMET = ITEMS.register("carmot_helmet",
             () -> new ArmorItem(ModArmorMaterials.CARMOT, ArmorItem.Type.HELMET, new Item.Properties()));
