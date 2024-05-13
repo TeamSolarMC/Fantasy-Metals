@@ -1,33 +1,33 @@
-[04мая2024 11:38:53.434] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\Mike\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.2.20, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, fantasy_metals, --all, --output, D:\Fantasy-Metals-1.20.1\src\generated\resources, --existing, D:\Fantasy-Metals-1.20.1\src\main\resources]
-[04мая2024 11:38:53.440] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.10 by Eclipse Adoptium; OS Windows 10 arch amd64 version 10.0
-[04мая2024 11:38:53.532] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[04мая2024 11:38:53.578] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/Mike/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[04мая2024 11:38:53.846] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Mike\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.2.20\918959a037ab7191a0c45a359f4746ab76c110c3\javafmllanguage-1.20.1-47.2.20.jar is missing mods.toml file
-[04мая2024 11:38:53.849] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Mike\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.2.20\c1d1efcb98e8bfcf3dbfed0d1e81b55b648b86bf\lowcodelanguage-1.20.1-47.2.20.jar is missing mods.toml file
-[04мая2024 11:38:53.852] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Mike\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.2.20\efca3bee89c0085192b122d47334692b921ca7d1\mclanguage-1.20.1-47.2.20.jar is missing mods.toml file
-[04мая2024 11:38:53.855] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Mike\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.2.20\12cd436f148405b50c9b16bd8f3cc6f18db89824\fmlcore-1.20.1-47.2.20.jar is missing mods.toml file
-[04мая2024 11:38:53.913] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[04мая2024 11:38:54.926] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\Mike\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, fantasy_metals, --all, --output, D:\Fantasy-Metals-1.20.1\src\generated\resources, --existing, D:\Fantasy-Metals-1.20.1\src\main\resources]
-[04мая2024 11:38:55.194] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [fantasy_metals]
-[04мая2024 11:38:59.132] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.2.20, for MC 1.20.1 with MCP 20230612.114412
-[04мая2024 11:38:59.136] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.2.20 Initialized
-[04мая2024 11:38:59.646] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Mike/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.20_mapped_parchment_2023.10.08-1.20.2/forge-1.20.1-47.2.20_mapped_parchment_2023.10.08-1.20.2-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[04мая2024 11:38:59.647] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Mike/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.20_mapped_parchment_2023.10.08-1.20.2/forge-1.20.1-47.2.20_mapped_parchment_2023.10.08-1.20.2-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[04мая2024 11:38:59.774] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[04мая2024 11:38:59.837] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 62 ms
-[04мая2024 11:38:59.837] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: fantasy_metals
-[04мая2024 11:38:59.959] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: fantasy_metals finished after 122 ms
-[04мая2024 11:38:59.959] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: fantasy_metals
-[04мая2024 11:38:59.977] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: fantasy_metals finished after 17 ms
-[04мая2024 11:38:59.977] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id fantasy_metals
-[04мая2024 11:38:59.989] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id fantasy_metals finished after 11 ms
-[04мая2024 11:38:59.989] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id fantasy_metals
-[04мая2024 11:38:59.991] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id fantasy_metals finished after 2 ms
-[04мая2024 11:38:59.992] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Global Loot Modifiers : fantasy_metals
-[04мая2024 11:38:59.993] [main/INFO] [net.minecraft.data.DataGenerator/]: Global Loot Modifiers : fantasy_metals finished after 1 ms
-[04мая2024 11:38:59.993] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[04мая2024 11:39:00.011] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 17 ms
-[04мая2024 11:39:00.012] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
-[04мая2024 11:39:00.027] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 15 ms
-[04мая2024 11:39:00.027] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 253 ms
-[04мая2024 11:39:00.036] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 326, old count: 326, new count: 327, removed stale: 0, written: 0
+[13мая2024 15:42:30.287] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\Mike\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.2.20, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, fantasy_metals, --all, --output, D:\Fantasy-Metals-1.20.1\src\generated\resources, --existing, D:\Fantasy-Metals-1.20.1\src\main\resources]
+[13мая2024 15:42:30.297] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.10 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[13мая2024 15:42:30.457] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[13мая2024 15:42:30.522] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/Mike/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[13мая2024 15:42:30.856] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Mike\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.2.20\918959a037ab7191a0c45a359f4746ab76c110c3\javafmllanguage-1.20.1-47.2.20.jar is missing mods.toml file
+[13мая2024 15:42:30.861] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Mike\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.2.20\c1d1efcb98e8bfcf3dbfed0d1e81b55b648b86bf\lowcodelanguage-1.20.1-47.2.20.jar is missing mods.toml file
+[13мая2024 15:42:30.864] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Mike\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.2.20\efca3bee89c0085192b122d47334692b921ca7d1\mclanguage-1.20.1-47.2.20.jar is missing mods.toml file
+[13мая2024 15:42:30.867] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Mike\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.2.20\12cd436f148405b50c9b16bd8f3cc6f18db89824\fmlcore-1.20.1-47.2.20.jar is missing mods.toml file
+[13мая2024 15:42:30.939] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[13мая2024 15:42:32.331] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\Mike\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, fantasy_metals, --all, --output, D:\Fantasy-Metals-1.20.1\src\generated\resources, --existing, D:\Fantasy-Metals-1.20.1\src\main\resources]
+[13мая2024 15:42:32.686] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [fantasy_metals]
+[13мая2024 15:42:37.618] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.2.20, for MC 1.20.1 with MCP 20230612.114412
+[13мая2024 15:42:37.621] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.2.20 Initialized
+[13мая2024 15:42:38.363] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Mike/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.20_mapped_parchment_2023.10.08-1.20.2/forge-1.20.1-47.2.20_mapped_parchment_2023.10.08-1.20.2-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[13мая2024 15:42:38.363] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Mike/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.20_mapped_parchment_2023.10.08-1.20.2/forge-1.20.1-47.2.20_mapped_parchment_2023.10.08-1.20.2-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[13мая2024 15:42:38.593] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[13мая2024 15:42:38.683] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 89 ms
+[13мая2024 15:42:38.684] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: fantasy_metals
+[13мая2024 15:42:38.944] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: fantasy_metals finished after 260 ms
+[13мая2024 15:42:38.945] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: fantasy_metals
+[13мая2024 15:42:39.004] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: fantasy_metals finished after 59 ms
+[13мая2024 15:42:39.004] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id fantasy_metals
+[13мая2024 15:42:39.027] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id fantasy_metals finished after 21 ms
+[13мая2024 15:42:39.027] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id fantasy_metals
+[13мая2024 15:42:39.031] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id fantasy_metals finished after 4 ms
+[13мая2024 15:42:39.032] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Global Loot Modifiers : fantasy_metals
+[13мая2024 15:42:39.034] [main/INFO] [net.minecraft.data.DataGenerator/]: Global Loot Modifiers : fantasy_metals finished after 2 ms
+[13мая2024 15:42:39.034] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[13мая2024 15:42:39.070] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 35 ms
+[13мая2024 15:42:39.071] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
+[13мая2024 15:42:39.096] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 24 ms
+[13мая2024 15:42:39.096] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 504 ms
+[13мая2024 15:42:39.113] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 326, old count: 326, new count: 327, removed stale: 0, written: 10

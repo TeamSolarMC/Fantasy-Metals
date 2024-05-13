@@ -6,7 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "fantasy_metals:carmot_ore"
+          "Name": "fantasy_metals:adamant_ore"
         },
         "target": {
           "block": "minecraft:end_stone",

@@ -600,6 +600,68 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .of(ModItems.CARMOT_INGOT.get()).build()))
                 .save(p_251297_);
 
+        //INGOTS FROM BLOCK
+
+//        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ADAMANT_INGOT.get(), 9)
+//                .requires(ModBlocks.ADAMANT_BLOCK.get())
+//                .unlockedBy("has_adamant_block", inventoryTrigger(ItemPredicate.Builder.item()
+//                        .of(ModBlocks.ADAMANT_BLOCK.get()).build()))
+//                .save(p_251297_, "fantasy_metals:adamant_ingot_from_block");
+//
+//        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ALEXANDRITE.get(), 9)
+//                .requires(ModBlocks.ALEXANDRITE_BLOCK.get())
+//                .unlockedBy("has_alexandrite_block", inventoryTrigger(ItemPredicate.Builder.item()
+//                        .of(ModBlocks.ALEXANDRITE_BLOCK.get()).build()))
+//                .save(p_251297_, "fantasy_metals:alexandrite_from_block");
+//
+//        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BLACK_OPAL.get(), 9)
+//                .requires(ModBlocks.BLACK_OPAL_BLOCK.get())
+//                .unlockedBy("has_black_opal_block", inventoryTrigger(ItemPredicate.Builder.item()
+//                        .of(ModBlocks.BLACK_OPAL_BLOCK.get()).build()))
+//                .save(p_251297_, "fantasy_metals:black_opal_from_block");
+//
+//        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.CARMOT_INGOT.get(), 9)
+//                .requires(ModBlocks.CARMOT_BLOCK.get())
+//                .unlockedBy("has_carmot_block", inventoryTrigger(ItemPredicate.Builder.item()
+//                        .of(ModBlocks.CARMOT_BLOCK.get()).build()))
+//                .save(p_251297_, "fantasy_metals:carmot_ingot_from_block");
+//
+//        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TANZANITE.get(), 9)
+//                .requires(ModBlocks.TANZANITE_BLOCK.get())
+//                .unlockedBy("has_tanzanite_block", inventoryTrigger(ItemPredicate.Builder.item()
+//                        .of(ModBlocks.TANZANITE_BLOCK.get()).build()))
+//                .save(p_251297_, "fantasy_metals:tanzanite_from_block");
+//
+//        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.MYTHRIL_INGOT.get(), 9)
+//                .requires(ModBlocks.MYTHRIL_BLOCK.get())
+//                .unlockedBy("has_mythril_block", inventoryTrigger(ItemPredicate.Builder.item()
+//                        .of(ModBlocks.MYTHRIL_BLOCK.get()).build()))
+//                .save(p_251297_, "fantasy_metals:mythril_ingot_from_block");
+//
+//        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ORICHALCUM_INGOT.get(), 9)
+//                .requires(ModBlocks.ORICHALCUM_BLOCK.get())
+//                .unlockedBy("has_orichalcum_block", inventoryTrigger(ItemPredicate.Builder.item()
+//                        .of(ModBlocks.ORICHALCUM_BLOCK.get()).build()))
+//                .save(p_251297_, "fantasy_metals:orichalcum_ingot_from_block");
+//
+//        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SARDONYX.get(), 9)
+//                .requires(ModBlocks.SARDONYX_BLOCK.get())
+//                .unlockedBy("has_sardonyx_block", inventoryTrigger(ItemPredicate.Builder.item()
+//                        .of(ModBlocks.SARDONYX_BLOCK.get()).build()))
+//                .save(p_251297_, "fantasy_metals:sardonyx_from_block");
+//
+//        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TANZANITE.get(), 9)
+//                .requires(ModBlocks.TANZANITE_BLOCK.get())
+//                .unlockedBy("has_tanzanite_block", inventoryTrigger(ItemPredicate.Builder.item()
+//                        .of(ModBlocks.TANZANITE_BLOCK.get()).build()))
+//                .save(p_251297_, "fantasy_metals:tanzanite_from_block");
+//
+//        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.TSAVORITE.get(), 9)
+//                .requires(ModBlocks.TSAVORITE_BLOCK.get())
+//                .unlockedBy("has_tsavorite_block", inventoryTrigger(ItemPredicate.Builder.item()
+//                        .of(ModBlocks.TSAVORITE_BLOCK.get()).build()))
+//                .save(p_251297_, "fantasy_metals:tsavorite_from_block");
+
         //RAW THINGS
 
         nineBlockStorageRecipes(p_251297_,RecipeCategory.MISC, ModItems.RAW_MYTHRIL.get(),RecipeCategory.MISC, ModBlocks.RAW_MYTHRIL_BLOCK.get(),

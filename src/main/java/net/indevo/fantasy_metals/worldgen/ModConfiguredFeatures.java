@@ -66,7 +66,7 @@ public class ModConfiguredFeatures {
         register(context, OVERWORLD_TSAVORITE_ORE_KEY, Feature.ORE, new OreConfiguration(overworldTsavoriteOres, 3));
 
         register(context, END_ADAMANT_ORE_KEY, Feature.ORE, new OreConfiguration(endReplaceables,
-                ModBlocks.CARMOT_ORE.get().defaultBlockState(), 3));
+                ModBlocks.ADAMANT_ORE.get().defaultBlockState(), 3));
 
         register(context, END_TANZANITE_ORE_KEY, Feature.ORE, new OreConfiguration(endReplaceables,
                 ModBlocks.TANZANITE_ORE.get().defaultBlockState(), 3));
