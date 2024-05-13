@@ -38,17 +38,17 @@ public class ModConfiguredFeatures {
         List<OreConfiguration.TargetBlockState> overworldMythrilOres = List.of(OreConfiguration.target(stoneReplaceable,
                 ModBlocks.MYTHRIL_ORE.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_MYTHRIL_ORE.get().defaultBlockState()));
-        register(context, OVERWORLD_MYTHRIL_ORE_KEY, Feature.ORE, new OreConfiguration(overworldMythrilOres, 3));
+        register(context, OVERWORLD_MYTHRIL_ORE_KEY, Feature.ORE, new OreConfiguration(overworldMythrilOres, 6));
 
         List<OreConfiguration.TargetBlockState> overworldCarmotOres = List.of(OreConfiguration.target(stoneReplaceable,
                 ModBlocks.CARMOT_ORE.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSlATE_CARMOT_ORE.get().defaultBlockState()));
-        register(context, OVERWORLD_CARMOT_ORE_KEY, Feature.ORE, new OreConfiguration(overworldCarmotOres, 3));
+        register(context, OVERWORLD_CARMOT_ORE_KEY, Feature.ORE, new OreConfiguration(overworldCarmotOres, 8));
 
         List<OreConfiguration.TargetBlockState> overworldOrichalcumOres = List.of(OreConfiguration.target(stoneReplaceable,
                 ModBlocks.ORICHALCUM_ORE.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_ORICHALCUM_ORE.get().defaultBlockState()));
-        register(context, OVERWORLD_ORICHALCUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldOrichalcumOres, 3));
+        register(context, OVERWORLD_ORICHALCUM_ORE_KEY, Feature.ORE, new OreConfiguration(overworldOrichalcumOres, 8));
 
         List<OreConfiguration.TargetBlockState> overworldBismuthOres = List.of(OreConfiguration.target(stoneReplaceable,
                 ModBlocks.SARDONYX_ORE.get().defaultBlockState()),
@@ -58,21 +58,21 @@ public class ModConfiguredFeatures {
         List<OreConfiguration.TargetBlockState> overworldAlexandriteOres = List.of(OreConfiguration.target(stoneReplaceable,
                 ModBlocks.ALEXANDRITE_ORE.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_ALEXANDRITE_ORE.get().defaultBlockState()));
-        register(context, OVERWORLD_ALEXANDRITE_ORE_KEY, Feature.ORE, new OreConfiguration(overworldAlexandriteOres, 3));
+        register(context, OVERWORLD_ALEXANDRITE_ORE_KEY, Feature.ORE, new OreConfiguration(overworldAlexandriteOres, 6));
 
         List<OreConfiguration.TargetBlockState> overworldTsavoriteOres = List.of(OreConfiguration.target(stoneReplaceable,
                 ModBlocks.TSAVORITE_ORE.get().defaultBlockState()),
                 OreConfiguration.target(deepslateReplaceables, ModBlocks.DEEPSLATE_TSAVORITE_ORE.get().defaultBlockState()));
-        register(context, OVERWORLD_TSAVORITE_ORE_KEY, Feature.ORE, new OreConfiguration(overworldTsavoriteOres, 3));
+        register(context, OVERWORLD_TSAVORITE_ORE_KEY, Feature.ORE, new OreConfiguration(overworldTsavoriteOres, 6));
 
         register(context, END_ADAMANT_ORE_KEY, Feature.ORE, new OreConfiguration(endReplaceables,
                 ModBlocks.ADAMANT_ORE.get().defaultBlockState(), 3));
 
         register(context, END_TANZANITE_ORE_KEY, Feature.ORE, new OreConfiguration(endReplaceables,
-                ModBlocks.TANZANITE_ORE.get().defaultBlockState(), 3));
+                ModBlocks.TANZANITE_ORE.get().defaultBlockState(), 4));
 
         register(context, NETHER_BLACK_OPAL_ORE_KEY, Feature.ORE, new OreConfiguration(netherrackReplaceables,
-                ModBlocks.BLACK_OPAL_ORE.get().defaultBlockState(), 3));
+                ModBlocks.BLACK_OPAL_ORE.get().defaultBlockState(), 5));
     }
 
 
