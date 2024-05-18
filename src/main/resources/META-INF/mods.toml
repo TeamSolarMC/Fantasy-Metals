@@ -9,14 +9,14 @@ license="MIT"
 
 modId="fantasy_metals"
 
-version="1.0.2"
+version="1.0.3"
 
 displayName="Fantasy Metals"
 
 authors="IndEvo Studio"
 
 
-description='''Mod adding a variety of fantasy ores and gems, toolsets and armor.'''
+description='''Fantasy ores and gems, tools and armor.'''
 
 [[dependencies.fantasy_metals]]
 
