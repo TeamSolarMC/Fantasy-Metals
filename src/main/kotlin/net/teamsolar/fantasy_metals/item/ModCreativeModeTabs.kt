@@ -29,21 +29,15 @@ object ModCreativeModeTabs: ModBlockInputHelper {
                 .icon { ModItems.ADAMANT_SET.INGOT.item().defaultInstance }
                 .displayItems { parameters: ItemDisplayParameters, output: CreativeModeTab.Output ->
                     fun addSet(set: MetalEquipmentSet) {
-                        for(ore in oreBlocksAssociatedWith(set)) {
-                            output.accept(ore.asItem())
-                        }
                         output.accept(set.RAW.item())
-                        for(block in rawBlocksAssociatedWith(set)) {
-                            output.accept(block.asItem())
-                        }
                         output.accept(set.INGOT.item())
                         output.accept(set.NUGGET.item())
-                        for(block in metalBlocksAssociatedWith(set)) {
-                            output.accept(block.asItem())
-                        }
                         for (item in set.tools.toSet() + set.combatItems.toSet()) {
                             output.accept(item)
                         }
+                    }
+                    for(block in BLOCKS) {
+                        output.accept(block.asItem())
                     }
                     addSet(ModItems.MYTHRIL_SET)
                     addSet(ModItems.ADAMANT_SET)
@@ -51,17 +45,7 @@ object ModCreativeModeTabs: ModBlockInputHelper {
                     addSet(ModItems.CARMOT_SET)
 
                     for(gem in ModItems.GEMS) {
-                        for(oreBlock in oreBlocksWithPrefix(gem.prefix)) {
-                            output.accept(oreBlock.asItem())
-                        }
-                    }
-                    for(gem in ModItems.GEMS) {
                         output.accept(gem.GEM)
-                    }
-                    for(gem in ModItems.GEMS) {
-                        for(block in metalBlocksWithPrefix(gem.prefix)) {
-                            output.accept(block.asItem())
-                        }
                     }
                     // output.accept(EXAMPLE_ITEM.get()) // Add the example item to the tab. For your own tabs, this method is preferred over the event
                 }
