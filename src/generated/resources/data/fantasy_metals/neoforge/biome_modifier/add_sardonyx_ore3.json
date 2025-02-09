@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "fantasy_metals:sardonyx_ore_placed3",
+  "step": "underground_ores"
+}

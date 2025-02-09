@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_orichalcum_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fantasy_metals:orichalcum_hoe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:orichalcum_hoe_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_orichalcum_hoe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:orichalcum_hoe_blasting"
+    ]
+  }
+}

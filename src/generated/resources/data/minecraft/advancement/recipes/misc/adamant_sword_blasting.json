@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_adamant_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fantasy_metals:adamant_sword"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:adamant_sword_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_adamant_sword"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:adamant_sword_blasting"
+    ]
+  }
+}

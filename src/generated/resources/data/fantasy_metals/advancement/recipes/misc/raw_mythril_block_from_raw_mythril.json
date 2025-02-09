@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_raw_mythril": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fantasy_metals:raw_mythril"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fantasy_metals:raw_mythril_block_from_raw_mythril"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_raw_mythril"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fantasy_metals:raw_mythril_block_from_raw_mythril"
+    ]
+  }
+}

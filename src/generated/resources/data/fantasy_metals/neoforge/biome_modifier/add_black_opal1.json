@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_nether",
+  "features": "fantasy_metals:black_opal_placed1",
+  "step": "underground_ores"
+}

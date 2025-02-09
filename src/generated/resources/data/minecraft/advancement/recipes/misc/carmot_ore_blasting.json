@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_carmot_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fantasy_metals:carmot_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:carmot_ore_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_carmot_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:carmot_ore_blasting"
+    ]
+  }
+}

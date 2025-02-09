@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_orichalcum_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fantasy_metals:orichalcum_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:orichalcum_leggings_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_orichalcum_leggings"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:orichalcum_leggings_blasting"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "fantasy_metals:block/basalt_black_opal_ore_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "fantasy_metals:block/basalt_black_opal_ore"
+    },
+    "axis=z": {
+      "model": "fantasy_metals:block/basalt_black_opal_ore_horizontal",
+      "x": 90
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "fantasy_metals:block/basalt_black_opal_ore_top",
+    "side": "fantasy_metals:block/basalt_black_opal_ore_side"
+  }
+}

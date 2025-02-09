@@ -1,0 +1,17 @@
+{
+  "values": [
+    "#c:storage_blocks/mythril",
+    "#c:storage_blocks/raw_mythril",
+    "#c:storage_blocks/adamant",
+    "#c:storage_blocks/raw_adamant",
+    "#c:storage_blocks/orichalcum",
+    "#c:storage_blocks/raw_orichalcum",
+    "#c:storage_blocks/carmot",
+    "#c:storage_blocks/raw_carmot",
+    "#c:storage_blocks/alexandrite",
+    "#c:storage_blocks/black_opal",
+    "#c:storage_blocks/tanzanite",
+    "#c:storage_blocks/sardonyx",
+    "#c:storage_blocks/tsavorite"
+  ]
+}

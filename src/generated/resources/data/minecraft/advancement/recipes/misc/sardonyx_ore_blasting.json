@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_sardonyx_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fantasy_metals:sardonyx_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:sardonyx_ore_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_sardonyx_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:sardonyx_ore_blasting"
+    ]
+  }
+}

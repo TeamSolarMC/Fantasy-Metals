@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mythril_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fantasy_metals:mythril_pickaxe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:mythril_pickaxe_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_mythril_pickaxe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:mythril_pickaxe_blasting"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mythril_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fantasy_metals:mythril_hoe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:mythril_hoe_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_mythril_hoe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:mythril_hoe_blasting"
+    ]
+  }
+}

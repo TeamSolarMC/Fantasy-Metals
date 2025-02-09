@@ -1,0 +1,9 @@
+{
+  "remove": [
+    "minecraft:end_highlands",
+    "minecraft:the_end"
+  ],
+  "values": [
+    "#minecraft:is_end"
+  ]
+}

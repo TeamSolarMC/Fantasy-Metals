@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_mythril_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fantasy_metals:mythril_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fantasy_metals:mythril_block_from_mythril_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_mythril_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fantasy_metals:mythril_block_from_mythril_ingot"
+    ]
+  }
+}

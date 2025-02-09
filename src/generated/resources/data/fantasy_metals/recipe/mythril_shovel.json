@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "fantasy_metals:mythril_ingot"
+    },
+    "C": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " A ",
+    " C ",
+    " C "
+  ],
+  "result": {
+    "count": 1,
+    "id": "fantasy_metals:mythril_shovel"
+  }
+}

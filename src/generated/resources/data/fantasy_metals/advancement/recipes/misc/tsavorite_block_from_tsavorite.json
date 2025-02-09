@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "fantasy_metals:tsavorite_block_from_tsavorite"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tsavorite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "fantasy_metals:tsavorite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tsavorite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "fantasy_metals:tsavorite_block_from_tsavorite"
+    ]
+  }
+}

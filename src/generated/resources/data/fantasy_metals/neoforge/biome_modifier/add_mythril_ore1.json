@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "fantasy_metals:mythril_ore_placed1",
+  "step": "underground_ores"
+}

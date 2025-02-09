@@ -25,6 +25,8 @@
 
   "item.fantasy_metals.tsavorite": "Tsavorite",
 
+  "alchemy.fantasy_metals.mythril": "Albedo",
+
   "item.fantasy_metals.mythril_sword": "Mythril Sword",
   "item.fantasy_metals.mythril_pickaxe": "Mythril Pickaxe",
   "item.fantasy_metals.mythril_shovel": "Mythril Shovel",
@@ -35,6 +37,14 @@
   "item.fantasy_metals.mythril_chestplate": "Mythril Chestplate",
   "item.fantasy_metals.mythril_leggings": "Mythril Leggings",
   "item.fantasy_metals.mythril_boots": "Mythril Boots",
+
+  "item.fantasy_metals.mythril_memento": "Mythical Memento",
+  "item.fantasy_metals.mythril_amulet": "Amulet of the Wind",
+  "item.fantasy_metals.mythril_ring": "Cloudstep Ring",
+
+  "alchemy.fantasy_metals.adamant": "Nigredo",
+  "alchemy.fantasy_metals.adamant_all1": "Becomes lighter (grants a speed bonus) as durability is lost",
+  "alchemy.fantasy_metals.adamant_all2": "Shares durability with other Adamant equipment & armor",
 
   "item.fantasy_metals.adamant_sword": "Adamant Sword",
   "item.fantasy_metals.adamant_pickaxe": "Adamant Pickaxe",
@@ -47,6 +57,8 @@
   "item.fantasy_metals.adamant_leggings": "Adamant Leggings",
   "item.fantasy_metals.adamant_boots": "Adamant Boots",
 
+  "item.fantasy_metals.adamant_memento": "Adamantine Memento",
+
   "item.fantasy_metals.orichalcum_sword": "Orichalcum Sword",
   "item.fantasy_metals.orichalcum_pickaxe": "Orichalcum Pickaxe",
   "item.fantasy_metals.orichalcum_shovel": "Orichalcum Shovel",
@@ -57,6 +69,8 @@
   "item.fantasy_metals.orichalcum_chestplate": "Orichalcum Chestplate",
   "item.fantasy_metals.orichalcum_leggings": "Orichalcum Leggings",
   "item.fantasy_metals.orichalcum_boots": "Orichalcum Boots",
+
+  "alchemy.fantasy_metals.carmot": "Rubedo",
 
   "item.fantasy_metals.carmot_sword": "Carmot Sword",
   "item.fantasy_metals.carmot_pickaxe": "Carmot Pickaxe",
@@ -69,6 +83,7 @@
   "item.fantasy_metals.carmot_leggings": "Carmot Leggings",
   "item.fantasy_metals.carmot_boots": "Carmot Boots",
 
+  "item.fantasy_metals.carmot_memento": "Carmine Memento",
 
 
   "block.fantasy_metals.mythril_ore": "Mythril Ore",
@@ -82,6 +97,7 @@
   "block.fantasy_metals.raw_orichalcum_block": "Raw Orichalcum Block",
 
   "block.fantasy_metals.carmot_ore": "Carmot Ore",
+  "block.fantasy_metals.deepslate_carmot_ore": "Deepslate Carmot Ore",
   "block.fantasy_metals.carmot_block": "Carmot Block",
   "block.fantasy_metals.raw_carmot_block": "Raw Carmot Block",
 
@@ -101,6 +117,7 @@
   "block.fantasy_metals.tanzanite_ore": "Tanzanite Ore",
 
   "block.fantasy_metals.black_opal_ore": "Black Opal Ore",
+  "block.fantasy_metals.basalt_black_opal_ore": "Basalt Black Opal Ore",
 
   "block.fantasy_metals.sardonyx_block": "Sardonyx Block",
   "block.fantasy_metals.alexandrite_block": "Alexandrite Block",
@@ -109,5 +126,5 @@
   "block.fantasy_metals.black_opal_block": "Black Opal Block",
 
 
-  "creativetab.fantasy_metals_tab": "Fantasy Metals"
+  "itemGroup.fantasy_metals": "Fantasy Metals"
 }
