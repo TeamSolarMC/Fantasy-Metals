@@ -88,22 +88,22 @@
 
   "block.fantasy_metals.mythril_ore": "Mythril Ore",
   "block.fantasy_metals.deepslate_mythril_ore": "Deepslate Mythril Ore",
-  "block.fantasy_metals.mythril_block": "Mythril Block",
-  "block.fantasy_metals.raw_mythril_block": "Raw Mythril Block",
+  "block.fantasy_metals.mythril_block": "Block of Mythril",
+  "block.fantasy_metals.raw_mythril_block": "Block of Raw Mythril",
 
   "block.fantasy_metals.orichalcum_ore": "Orichalcum Ore",
   "block.fantasy_metals.deepslate_orichalcum_ore": "Deepslate Orichalcum Ore",
-  "block.fantasy_metals.orichalcum_block": "Orichalcum Block",
-  "block.fantasy_metals.raw_orichalcum_block": "Raw Orichalcum Block",
+  "block.fantasy_metals.orichalcum_block": "Block of Orichalcum",
+  "block.fantasy_metals.raw_orichalcum_block": "Block of Raw Orichalcum",
 
   "block.fantasy_metals.carmot_ore": "Carmot Ore",
   "block.fantasy_metals.deepslate_carmot_ore": "Deepslate Carmot Ore",
-  "block.fantasy_metals.carmot_block": "Carmot Block",
-  "block.fantasy_metals.raw_carmot_block": "Raw Carmot Block",
+  "block.fantasy_metals.carmot_block": "Block of Carmot",
+  "block.fantasy_metals.raw_carmot_block": "Block of Raw Carmot",
 
   "block.fantasy_metals.adamant_ore": "Adamant Ore",
-  "block.fantasy_metals.adamant_block": "Adamant Block",
-  "block.fantasy_metals.raw_adamant_block": "Raw Adamant Block",
+  "block.fantasy_metals.adamant_block": "Block of Adamant",
+  "block.fantasy_metals.raw_adamant_block": "Block of Raw Adamant",
 
   "block.fantasy_metals.sardonyx_ore": "Sardonyx Ore",
   "block.fantasy_metals.deepslate_sardonyx_ore": "Deepslate Sardonyx Ore",
@@ -119,11 +119,11 @@
   "block.fantasy_metals.black_opal_ore": "Black Opal Ore",
   "block.fantasy_metals.basalt_black_opal_ore": "Basalt Black Opal Ore",
 
-  "block.fantasy_metals.sardonyx_block": "Sardonyx Block",
-  "block.fantasy_metals.alexandrite_block": "Alexandrite Block",
-  "block.fantasy_metals.tsavorite_block": "Tsavorite Block",
-  "block.fantasy_metals.tanzanite_block": "Tanzanite Block",
-  "block.fantasy_metals.black_opal_block": "Black Opal Block",
+  "block.fantasy_metals.sardonyx_block": "Block of Sardonyx",
+  "block.fantasy_metals.alexandrite_block": "Block of Alexandrite",
+  "block.fantasy_metals.tsavorite_block": "Block of Tsavorite",
+  "block.fantasy_metals.tanzanite_block": "Block of Tanzanite",
+  "block.fantasy_metals.black_opal_block": "Block of Black Opal",
 
 
   "itemGroup.fantasy_metals": "Fantasy Metals"
