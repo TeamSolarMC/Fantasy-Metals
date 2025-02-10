@@ -17,12 +17,51 @@
         "state": {
           "Name": "fantasy_metals:basalt_black_opal_ore",
           "Properties": {
+            "axis": "x"
+          }
+        },
+        "target": {
+          "block_state": {
+            "Name": "minecraft:basalt",
+            "Properties": {
+              "axis": "x"
+            }
+          },
+          "predicate_type": "minecraft:blockstate_match"
+        }
+      },
+      {
+        "state": {
+          "Name": "fantasy_metals:basalt_black_opal_ore",
+          "Properties": {
             "axis": "y"
           }
         },
         "target": {
-          "block": "minecraft:basalt",
-          "predicate_type": "minecraft:block_match"
+          "block_state": {
+            "Name": "minecraft:basalt",
+            "Properties": {
+              "axis": "y"
+            }
+          },
+          "predicate_type": "minecraft:blockstate_match"
+        }
+      },
+      {
+        "state": {
+          "Name": "fantasy_metals:basalt_black_opal_ore",
+          "Properties": {
+            "axis": "z"
+          }
+        },
+        "target": {
+          "block_state": {
+            "Name": "minecraft:basalt",
+            "Properties": {
+              "axis": "z"
+            }
+          },
+          "predicate_type": "minecraft:blockstate_match"
         }
       }
     ]

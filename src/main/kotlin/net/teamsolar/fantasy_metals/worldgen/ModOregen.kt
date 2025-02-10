@@ -10,6 +10,7 @@ import net.minecraft.world.level.biome.Biome
 import net.minecraft.world.level.biome.Biomes
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
+import net.minecraft.world.level.block.RotatedPillarBlock
 import net.minecraft.world.level.levelgen.GenerationStep
 import net.minecraft.world.level.levelgen.VerticalAnchor
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature
@@ -19,6 +20,7 @@ import net.minecraft.world.level.levelgen.placement.HeightRangePlacement
 import net.minecraft.world.level.levelgen.placement.PlacedFeature
 import net.minecraft.world.level.levelgen.placement.PlacementModifier
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest
+import net.minecraft.world.level.levelgen.structure.templatesystem.BlockStateMatchTest
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest
 import net.neoforged.neoforge.common.world.BiomeModifier
 import net.neoforged.neoforge.common.world.BiomeModifiers
@@ -26,6 +28,7 @@ import net.neoforged.neoforge.registries.DeferredBlock
 import net.teamsolar.fantasy_metals.FantasyMetals
 import net.teamsolar.fantasy_metals.ModTags
 import net.teamsolar.fantasy_metals.block.ModBlocks
+import net.teamsolar.fantasy_metals.block.RotatedPillarBlockDropsXP
 
 object ModOregen {
     private val instanceMaps = mutableMapOf<String, MutableList<OregenTarget>>()
@@ -368,11 +371,17 @@ object ModOregen {
             OregenTarget(
                 "black_opal",
                 configuredFeaturesCallback = {
-                    val basaltReplaceables = BlockMatchTest(Blocks.BASALT)
-                    val blackOpalOres = listOf(
-                        OreConfiguration.target(netherrackReplaceables, ModBlocks.BLACK_OPAL_ORE.get().defaultBlockState()),
-                        OreConfiguration.target(basaltReplaceables, ModBlocks.BASALT_BLACK_OPAL_ORE.get().defaultBlockState())
+                    val blackOpalOres = mutableListOf(
+                        OreConfiguration.target(netherrackReplaceables, ModBlocks.BLACK_OPAL_ORE.get().defaultBlockState())
                     )
+                    for(blockState in Blocks.BASALT.stateDefinition.possibleStates) {
+                        val axis = blockState.getValue(RotatedPillarBlock.AXIS)
+                        val baseState = ModBlocks.BASALT_BLACK_OPAL_ORE.get().defaultBlockState()
+                        val nextState = baseState.setValue(RotatedPillarBlockDropsXP.AXIS, axis)
+                        blackOpalOres.add(
+                            OreConfiguration.target(BlockStateMatchTest(blockState), nextState)
+                        )
+                    }
                     context.register(
                         it.oreKey,
                         ConfiguredFeature(

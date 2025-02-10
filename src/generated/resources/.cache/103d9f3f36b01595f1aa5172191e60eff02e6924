@@ -1,4 +1,4 @@
-// 1.21.1	2025-02-08T22:53:24.1372886	Registries
+// 1.21.1	2025-02-09T19:01:16.1506352	Registries
 1ffc071ee62967868d78db189be9b4574c052653 data/fantasy_metals/neoforge/biome_modifier/add_adamant_ore1.json
 192180a7d716ed9dc585bcdaf11875893ac728cd data/fantasy_metals/neoforge/biome_modifier/add_adamant_ore_central_island.json
 fd0ba938b4efc789244a0b2c23ea3d1f7908605f data/fantasy_metals/neoforge/biome_modifier/add_adamant_ore_highlands.json
@@ -21,7 +21,7 @@ f2a8f6942f94f05d92014bef9a1a4c3d71ff9e0f data/fantasy_metals/worldgen/configured
 f2a8f6942f94f05d92014bef9a1a4c3d71ff9e0f data/fantasy_metals/worldgen/configured_feature/adamant_ore_highlands.json
 a85cb8d2b1a2822e05faf8d7b4a357e691e0ab86 data/fantasy_metals/worldgen/configured_feature/alexandrite_ore1.json
 bfbc7e7ce72138d41d36fc6ccdf5d348e61f6fc1 data/fantasy_metals/worldgen/configured_feature/alexandrite_ore2.json
-3e15737c70038c71d0dbb9e4ff5723ea9d691b8a data/fantasy_metals/worldgen/configured_feature/black_opal1.json
+e0453468ac785a1daecac2af979aed85db50c7f1 data/fantasy_metals/worldgen/configured_feature/black_opal1.json
 1609336c7b514715307aff14a7758e83dbd5482e data/fantasy_metals/worldgen/configured_feature/carmot_ore1.json
 9319d7d83692ec408e9f6c1bc3230d5c0b9734b3 data/fantasy_metals/worldgen/configured_feature/carmot_ore2.json
 5b701c853353fa7e9cbbce87a46eb80493dbf0be data/fantasy_metals/worldgen/configured_feature/mythril_ore1.json
