@@ -8,7 +8,11 @@ import net.minecraft.resources.ResourceLocation
 import net.minecraft.tags.BlockTags
 import net.minecraft.tags.ItemTags
 import net.minecraft.tags.TagKey
+import net.minecraft.world.entity.EquipmentSlotGroup
+import net.minecraft.world.entity.ai.attributes.AttributeModifier
+import net.minecraft.world.entity.ai.attributes.Attributes
 import net.minecraft.world.item.*
+import net.minecraft.world.item.component.ItemAttributeModifiers
 import net.minecraft.world.level.block.Block
 import net.neoforged.neoforge.common.Tags
 import net.neoforged.neoforge.registries.DeferredItem
@@ -19,11 +23,20 @@ import net.teamsolar.fantasy_metals.datagen.*
 open class MetalEquipmentSet(
     final override val prefix: String,
     val armorMaterial: Holder<ArmorMaterial>,
-    tier: Tier,
-    durabilityFactor: Int // For armor; e.g.
+    protected val tier: Tier,
+    armorDurabilities: Map<ArmorItem.Type, Int> // For armor; e.g.
         // Iron armor has a durability factor of 15 and a helmet has a base durability of 11,
         // so an iron helmet has a durability of 15 * 11 = 165.
     ) : ItemSet() {
+    constructor(prefix: String, armorMaterial: Holder<ArmorMaterial>, tier: Tier, durabilityFactor: Int): this(
+        prefix, armorMaterial, tier, armorDurabilities = mapOf(
+            ArmorItem.Type.HELMET to ArmorItem.Type.HELMET.getDurability(durabilityFactor),
+            ArmorItem.Type.CHESTPLATE to ArmorItem.Type.CHESTPLATE.getDurability(durabilityFactor),
+            ArmorItem.Type.LEGGINGS to ArmorItem.Type.LEGGINGS.getDurability(durabilityFactor),
+            ArmorItem.Type.BOOTS to ArmorItem.Type.BOOTS.getDurability(durabilityFactor)
+        )
+    )
+
     // provide default constructors for all items
     val SWORD = prefix + "_sword" properties Item.Properties().attributes(SwordItem.createAttributes(tier, 3, -2.4f)) constructor {SwordItem(tier, it)}
     val SHOVEL = prefix + "_shovel" properties Item.Properties().attributes(ShovelItem.createAttributes(tier, 1.5f, -3.0f)) constructor {ShovelItem(tier, it)}
@@ -35,10 +48,10 @@ open class MetalEquipmentSet(
      * for default attributes (attack damage and speed) of items
      */
 
-    val HELMET = prefix + "_helmet" properties Item.Properties().durability(ArmorItem.Type.HELMET.getDurability(durabilityFactor)) constructor {ArmorItem(armorMaterial, ArmorItem.Type.HELMET, it)}
-    val CHESTPLATE = prefix + "_chestplate" properties Item.Properties().durability(ArmorItem.Type.CHESTPLATE.getDurability(durabilityFactor)) constructor {ArmorItem(armorMaterial, ArmorItem.Type.CHESTPLATE, it)}
-    val LEGGINGS = prefix + "_leggings" properties Item.Properties().durability(ArmorItem.Type.LEGGINGS.getDurability(durabilityFactor)) constructor {ArmorItem(armorMaterial, ArmorItem.Type.LEGGINGS, it)}
-    val BOOTS = prefix + "_boots" properties  Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(durabilityFactor)) constructor {ArmorItem(armorMaterial, ArmorItem.Type.BOOTS, it)}
+    val HELMET = prefix + "_helmet" properties Item.Properties().durability(armorDurabilities[ArmorItem.Type.HELMET]!!) constructor {ArmorItem(armorMaterial, ArmorItem.Type.HELMET, it)}
+    val CHESTPLATE = prefix + "_chestplate" properties Item.Properties().durability(armorDurabilities[ArmorItem.Type.CHESTPLATE]!!) constructor {ArmorItem(armorMaterial, ArmorItem.Type.CHESTPLATE, it)}
+    val LEGGINGS = prefix + "_leggings" properties Item.Properties().durability(armorDurabilities[ArmorItem.Type.LEGGINGS]!!) constructor {ArmorItem(armorMaterial, ArmorItem.Type.LEGGINGS, it)}
+    val BOOTS = prefix + "_boots" properties  Item.Properties().durability(armorDurabilities[ArmorItem.Type.BOOTS]!!) constructor {ArmorItem(armorMaterial, ArmorItem.Type.BOOTS, it)}
 
     val INGOT = prefix + "_ingot" entry {Item(it)}
     val NUGGET = prefix + "_nugget" entry {Item(it)}
@@ -75,6 +88,26 @@ open class MetalEquipmentSet(
         NUGGET,
         RAW
     )
+
+    protected fun armorAndToughness(armor: Double = 0.0, toughness: Double = 0.0, type: ArmorItem.Type) = ItemAttributeModifiers.builder().add(
+        Attributes.ARMOR,
+        AttributeModifier(
+            // ResourceLocation.withDefaultNamespace("armor." + type.getName()),
+            ResourceLocation.fromNamespaceAndPath(FantasyMetals.MODID, "armor." + type.getName() + ".override"),
+            armor,
+            AttributeModifier.Operation.ADD_VALUE
+        ),
+        EquipmentSlotGroup.bySlot(type.slot)
+    ).add(
+        Attributes.ARMOR_TOUGHNESS,
+        AttributeModifier(
+            // ResourceLocation.withDefaultNamespace("armor." + type.getName()),
+            ResourceLocation.fromNamespaceAndPath(FantasyMetals.MODID, "armor." + type.getName() + ".override"),
+            toughness,
+            AttributeModifier.Operation.ADD_VALUE
+        ),
+        EquipmentSlotGroup.bySlot(type.slot)
+    ).build()
 
     open val tools: List<DeferredItem<out Item>>
         get() {

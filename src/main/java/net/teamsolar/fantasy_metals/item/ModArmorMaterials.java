@@ -46,7 +46,7 @@ public class ModArmorMaterials {
                                     )
                             ),
                             // Toughness value
-                            0,
+                            1,
                             // Knockback resistance
                             0
                     )
@@ -79,7 +79,7 @@ public class ModArmorMaterials {
                                     )
                             ),
                             // Toughness value
-                            0,
+                            4,
                             // Knockback resistance
                             0
                     )
