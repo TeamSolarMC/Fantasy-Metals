@@ -19,7 +19,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguratio
 import net.minecraft.world.level.levelgen.placement.HeightRangePlacement
 import net.minecraft.world.level.levelgen.placement.PlacedFeature
 import net.minecraft.world.level.levelgen.placement.PlacementModifier
-import net.minecraft.world.level.levelgen.structure.templatesystem.BlockMatchTest
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockStateMatchTest
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest
 import net.neoforged.neoforge.common.world.BiomeModifier
@@ -59,7 +58,7 @@ object ModOregen {
         val biomeModifierCallback: (BiomeModifierContext).(OregenTarget) -> Unit,
         uniqueName: String? = null
     ) {
-        val instance: Int
+        private val instance: Int
         init {
             if(instanceMaps[baseBlockName] == null) {
                 instanceMaps[baseBlockName] = mutableListOf()
@@ -418,10 +417,13 @@ object ModOregen {
                 placedFeaturesCallback = {
                     register(it.placedKey, it.oreKey,
                         ModOrePlacement.commonOrePlacement(120,
-                            HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(80)))
+                            HeightRangePlacement.triangle(
+                                VerticalAnchor.bottom(),
+                                VerticalAnchor.aboveBottom(40)
+                            ))
                     )
                 },
-                biomeModifierCallback = registerInsideBiomes (ModTags.Biomes.BIOMES_TANZANITE_GENERATES_IN)
+                biomeModifierCallback = registerInsideBiomes (BiomeTags.IS_END)
             )
         }
         // Sardonyx

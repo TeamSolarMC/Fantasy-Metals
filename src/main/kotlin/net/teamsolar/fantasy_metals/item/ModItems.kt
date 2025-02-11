@@ -11,6 +11,7 @@ import net.minecraft.world.item.PickaxeItem
 import net.minecraft.world.item.ShovelItem
 import net.minecraft.world.item.SwordItem
 import net.neoforged.bus.api.IEventBus
+import net.neoforged.neoforge.registries.DeferredItem
 import net.neoforged.neoforge.registries.DeferredRegister
 import net.teamsolar.fantasy_metals.FantasyMetals
 import java.util.function.Supplier
@@ -153,8 +154,8 @@ object ModItems {
     val BLACK_OPAL_SET = GemItemSet(ITEMS_REGISTER.registerSimpleItem("black_opal"))
     val TSAVORITE_SET = GemItemSet(ITEMS_REGISTER.registerSimpleItem("tsavorite"))
 
-    val TEST_ITEM = ITEMS_REGISTER.register("test_item", Supplier{BlockCharacteristicCheckerItem()})
-    val ORE_SCANNER_ITEM = ITEMS_REGISTER.register("ore_scanner_item", Supplier{ChunkOreDetectorItem()})
+    val TEST_ITEM: DeferredItem<BlockCharacteristicCheckerItem> = ITEMS_REGISTER.register("test_item", Supplier{BlockCharacteristicCheckerItem()})
+    val ORE_SCANNER_ITEM: DeferredItem<ChunkOreDetectorItem> = ITEMS_REGISTER.register("ore_scanner_item", Supplier{ChunkOreDetectorItem()})
 
     val GEMS = listOf(
         SARDONYX_SET,

@@ -13,14 +13,14 @@ import net.neoforged.neoforge.registries.DeferredItem
 import net.teamsolar.fantasy_metals.datagen.*
 
 open class GemItemSet(val GEM: DeferredItem<out Item>): ItemSet() {
-    final override val prefix = (GEM.id.path)
+    final override val prefix: String = (GEM.id.path)
 
     val GEM_TAG: TagKey<Item> = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "gems/$prefix"))
     val ORE_TAG: TagKey<Block> = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "ores/$prefix"))
     val ORE_TAG_ITEM: TagKey<Item> = ItemTags.create(ORE_TAG.location)
 
     val STORAGE_TAG: TagKey<Block> = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "storage_blocks/$prefix"))
-    val STORAGE_TAG_ITEM = ItemTags.create(STORAGE_TAG.location)
+    val STORAGE_TAG_ITEM: TagKey<Item> = ItemTags.create(STORAGE_TAG.location)
 
     open fun ItemTagsProviderHelper.addTags() {
         // Etc.

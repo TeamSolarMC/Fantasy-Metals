@@ -1,6 +1,6 @@
 {
   "type": "neoforge:add_features",
-  "biomes": "#fantasy_metals:end_tanzanite_spawns",
+  "biomes": "#minecraft:is_end",
   "features": "fantasy_metals:tanzanite_ore_placed1",
   "step": "underground_ores"
 }

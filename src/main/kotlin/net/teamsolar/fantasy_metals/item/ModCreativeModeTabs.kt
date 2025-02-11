@@ -20,7 +20,7 @@ import java.util.function.Supplier
 
 object ModCreativeModeTabs: ModBlockInputHelper {
     val CREATIVE_MODE_TABS: DeferredRegister<CreativeModeTab> =
-        DeferredRegister.create<CreativeModeTab>(Registries.CREATIVE_MODE_TAB, FantasyMetals.MODID)
+        DeferredRegister.create(Registries.CREATIVE_MODE_TAB, FantasyMetals.MODID)
 
     val TOOLS_TAB: DeferredHolder<CreativeModeTab, CreativeModeTab> = CREATIVE_MODE_TABS.register("fantasy_metals_items",
         Supplier {

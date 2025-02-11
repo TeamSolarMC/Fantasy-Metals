@@ -3,7 +3,6 @@ package net.teamsolar.fantasy_metals.item;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.common.SimpleTier;
-import net.neoforged.neoforge.common.Tags;
 import net.teamsolar.fantasy_metals.ModTags;
 
 public class ModToolTiers {

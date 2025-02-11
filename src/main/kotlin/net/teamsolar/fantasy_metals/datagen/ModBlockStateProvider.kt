@@ -25,16 +25,20 @@ class ModBlockStateProvider(output: PackOutput, exFileHelper: ExistingFileHelper
         }
         for(block in helper.BLOCKS) {
             val actual = block.get()
-            if(actual is RotatedPillarBlockDropsXP) {
-                val resourceLocation = key(actual)
-                val side = ResourceLocation.fromNamespaceAndPath(resourceLocation.namespace, "block/" + resourceLocation.path + "_side")
-                val top = ResourceLocation.fromNamespaceAndPath(resourceLocation.namespace, "block/" + resourceLocation.path + "_top")
-                axisBlock(actual, side, top)
-                itemModels().withExistingParent(resourceLocation.toString(), ResourceLocation.fromNamespaceAndPath(resourceLocation.namespace, "block/" + resourceLocation.path))
-            } else if(actual is RotatedPillarBlock) {
-                axisBlock(actual)
-            } else {
-                blockWithItem(block)
+            when (actual) {
+                is RotatedPillarBlockDropsXP -> {
+                    val resourceLocation = key(actual)
+                    val side = ResourceLocation.fromNamespaceAndPath(resourceLocation.namespace, "block/" + resourceLocation.path + "_side")
+                    val top = ResourceLocation.fromNamespaceAndPath(resourceLocation.namespace, "block/" + resourceLocation.path + "_top")
+                    axisBlock(actual, side, top)
+                    itemModels().withExistingParent(resourceLocation.toString(), ResourceLocation.fromNamespaceAndPath(resourceLocation.namespace, "block/" + resourceLocation.path))
+                }
+                is RotatedPillarBlock -> {
+                    axisBlock(actual)
+                }
+                else -> {
+                    blockWithItem(block)
+                }
             }
         }
     }

@@ -63,9 +63,9 @@ open class MetalEquipmentSet(
     val ORE_TAG: TagKey<Block> = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "ores/$prefix"))
     val ORE_TAG_ITEM: TagKey<Item> = ItemTags.create(ORE_TAG.location)
     val RAW_STORAGE_TAG: TagKey<Block> = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "storage_blocks/raw_$prefix"))
-    val RAW_STORAGE_TAG_ITEM = ItemTags.create(RAW_STORAGE_TAG.location)
+    val RAW_STORAGE_TAG_ITEM: TagKey<Item> = ItemTags.create(RAW_STORAGE_TAG.location)
     val STORAGE_TAG: TagKey<Block> = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "storage_blocks/$prefix"))
-    val STORAGE_TAG_ITEM = ItemTags.create(STORAGE_TAG.location)
+    val STORAGE_TAG_ITEM: TagKey<Item> = ItemTags.create(STORAGE_TAG.location)
 
     val INCORRECT_FOR_THIS_TOOL: TagKey<Block> = tier.incorrectBlocksForDrops
 
@@ -89,7 +89,7 @@ open class MetalEquipmentSet(
         RAW
     )
 
-    protected fun armorAndToughness(armor: Double = 0.0, toughness: Double = 0.0, type: ArmorItem.Type) = ItemAttributeModifiers.builder().add(
+    protected fun armorAndToughness(armor: Double = 0.0, toughness: Double = 0.0, type: ArmorItem.Type): ItemAttributeModifiers = ItemAttributeModifiers.builder().add(
         Attributes.ARMOR,
         AttributeModifier(
             // ResourceLocation.withDefaultNamespace("armor." + type.getName()),

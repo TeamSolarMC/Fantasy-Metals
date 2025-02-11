@@ -18,7 +18,7 @@ import net.teamsolar.fantasy_metals.item.ModItems
 import java.util.function.Supplier
 
 object ModBlocks {
-    val BLOCKS_REGISTER = DeferredRegister.createBlocks(FantasyMetals.MODID)
+    val BLOCKS_REGISTER: DeferredRegister.Blocks = DeferredRegister.createBlocks(FantasyMetals.MODID)
 
     val MYTHRIL_BLOCK = registerBlockAndItem("mythril_block", metalBlock(8.0f, 9.6f))
     val MYTHRIL_ORE = registerBlockAndItem("mythril_ore", oreBlock(4.8f, 4.8f))

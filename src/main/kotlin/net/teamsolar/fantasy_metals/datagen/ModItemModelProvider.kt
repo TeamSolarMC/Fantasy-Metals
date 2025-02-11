@@ -66,23 +66,23 @@ class ModItemModelProvider(output: PackOutput, existingFileHelper: ExistingFileH
 
     private val trimMaterials: LinkedHashMap<ResourceKey<TrimMaterial>, Float> = LinkedHashMap()
     init {
-        trimMaterials[TrimMaterials.QUARTZ] = 0.1F;
-        trimMaterials[TrimMaterials.IRON] = 0.2F;
-        trimMaterials[TrimMaterials.NETHERITE] = 0.3F;
-        trimMaterials[TrimMaterials.REDSTONE] = 0.4F;
-        trimMaterials[TrimMaterials.COPPER] = 0.5F;
-        trimMaterials[TrimMaterials.GOLD] = 0.6F;
-        trimMaterials[TrimMaterials.EMERALD] = 0.7F;
-        trimMaterials[TrimMaterials.DIAMOND] = 0.8F;
-        trimMaterials[TrimMaterials.LAPIS] = 0.9F;
-        trimMaterials[TrimMaterials.AMETHYST] = 1.0F;
+        trimMaterials[TrimMaterials.QUARTZ] = 0.1F
+        trimMaterials[TrimMaterials.IRON] = 0.2F
+        trimMaterials[TrimMaterials.NETHERITE] = 0.3F
+        trimMaterials[TrimMaterials.REDSTONE] = 0.4F
+        trimMaterials[TrimMaterials.COPPER] = 0.5F
+        trimMaterials[TrimMaterials.GOLD] = 0.6F
+        trimMaterials[TrimMaterials.EMERALD] = 0.7F
+        trimMaterials[TrimMaterials.DIAMOND] = 0.8F
+        trimMaterials[TrimMaterials.LAPIS] = 0.9F
+        trimMaterials[TrimMaterials.AMETHYST] = 1.0F
     }
 
     private fun trimmedArmorItem(itemDeferredItem: DeferredItem<out ArmorItem>) {
-        val MODID: String = FantasyMetals.MODID // Change this to your mod id
+        val modid: String = FantasyMetals.MODID // Change this to your mod id
         val armorItem = itemDeferredItem.get()
         trimMaterials.forEach { (trimMaterial: ResourceKey<TrimMaterial>, trimValue: Float) ->
-            val armorType = when (armorItem.getEquipmentSlot()) {
+            val armorType = when (armorItem.equipmentSlot) {
                 EquipmentSlot.HEAD -> "helmet"
                 EquipmentSlot.CHEST -> "chestplate"
                 EquipmentSlot.LEGS -> "leggings"
@@ -91,8 +91,8 @@ class ModItemModelProvider(output: PackOutput, existingFileHelper: ExistingFileH
             }
 
             val armorItemPath: String = armorItem.toString()
-            val trimPath = "trims/items/" + armorType + "_trim_" + trimMaterial.location().getPath()
-            val currentTrimName = armorItemPath + "_" + trimMaterial.location().getPath() + "_trim"
+            val trimPath = "trims/items/" + armorType + "_trim_" + trimMaterial.location().path
+            val currentTrimName = armorItemPath + "_" + trimMaterial.location().path + "_trim"
             val armorItemResLoc = ResourceLocation.parse(armorItemPath)
             val trimResLoc = ResourceLocation.parse(trimPath) // minecraft namespace
             val trimNameResLoc = ResourceLocation.parse(currentTrimName)
@@ -118,7 +118,7 @@ class ModItemModelProvider(output: PackOutput, existingFileHelper: ExistingFileH
                 .texture(
                     "layer0",
                     ResourceLocation.fromNamespaceAndPath(
-                        MODID,
+                        modid,
                         "item/" + itemDeferredItem.id.path
                     )
                 )

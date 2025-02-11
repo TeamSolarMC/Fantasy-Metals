@@ -30,28 +30,8 @@ import java.util.function.Supplier
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(FantasyMetals.MODID)
-class FantasyMetals {
-    companion object {
-        // Define mod id in a common place for everything to reference
-        const val MODID = "fantasy_metals"
-        // Directly reference a slf4j logger
-        val LOGGER: org.slf4j.Logger = LogUtils.getLogger();
-
-        // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
-
-        // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-        @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = [Dist.CLIENT])
-        object ClientModEvents {
-            @SubscribeEvent
-            fun onClientSetup(event: FMLClientSetupEvent?) {
-                // Some client setup code
-                LOGGER.info("HELLO FROM CLIENT SETUP")
-                LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().user.name)
-            }
-        }
-    }
-
-    constructor(modEventBus: IEventBus, modContainer: ModContainer) {
+class FantasyMetals (modEventBus: IEventBus, modContainer: ModContainer) {
+    init {
         // Register the commonSetup method for modloading
         modEventBus.addListener(::commonSetup)
 
@@ -74,6 +54,26 @@ class FantasyMetals {
         modEventBus.addListener(::addCreative)
 
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
+    }
+
+    companion object {
+        // Define mod id in a common place for everything to reference
+        const val MODID = "fantasy_metals"
+        // Directly reference a slf4j logger
+        val LOGGER: org.slf4j.Logger = LogUtils.getLogger()
+
+        // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
+
+        // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
+        @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = [Dist.CLIENT])
+        object ClientModEvents {
+            @SubscribeEvent
+            fun onClientSetup(event: FMLClientSetupEvent?) {
+                // Some client setup code
+                LOGGER.info("HELLO FROM CLIENT SETUP")
+                LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().user.name)
+            }
+        }
     }
 
     private fun commonSetup(event: FMLCommonSetupEvent) {
