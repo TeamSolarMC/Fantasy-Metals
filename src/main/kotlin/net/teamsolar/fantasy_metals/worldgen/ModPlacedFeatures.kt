@@ -6,9 +6,7 @@ import net.minecraft.core.registries.Registries
 import net.minecraft.data.worldgen.BootstrapContext
 import net.minecraft.resources.ResourceKey
 import net.minecraft.resources.ResourceLocation
-import net.minecraft.world.level.levelgen.VerticalAnchor
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature
-import net.minecraft.world.level.levelgen.placement.HeightRangePlacement
 import net.minecraft.world.level.levelgen.placement.PlacedFeature
 import net.minecraft.world.level.levelgen.placement.PlacementModifier
 import net.teamsolar.fantasy_metals.FantasyMetals
@@ -28,7 +26,7 @@ object ModPlacedFeatures {
     val TSAVORITE_ORE_PLACED_KEY = registerKey("tsavorite_ore_placed")*/
 
     fun bootstrap(context: BootstrapContext<PlacedFeature>) {
-        val helper = object : ModOregen.OregenTarget.PlacedFeaturesContext {
+        val helper = object : PlacedFeaturesContext {
             override val configuredFeatures: HolderGetter<ConfiguredFeature<*, *>> = context.lookup(Registries.CONFIGURED_FEATURE)
             override fun register(placedKey: ResourceKey<PlacedFeature>, oreKey: ResourceKey<ConfiguredFeature<*, *>>, modifiers: List<PlacementModifier>) {
                 register(context, placedKey, configuredFeatures.getOrThrow(oreKey), modifiers)

@@ -2,13 +2,11 @@ package net.teamsolar.fantasy_metals.worldgen
 
 import net.minecraft.core.HolderGetter
 import net.minecraft.core.HolderSet
-import net.minecraft.data.worldgen.BootstrapContext
 import net.minecraft.resources.ResourceKey
 import net.minecraft.tags.BiomeTags
 import net.minecraft.tags.TagKey
 import net.minecraft.world.level.biome.Biome
 import net.minecraft.world.level.biome.Biomes
-import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.RotatedPillarBlock
 import net.minecraft.world.level.levelgen.GenerationStep
@@ -20,19 +18,23 @@ import net.minecraft.world.level.levelgen.placement.HeightRangePlacement
 import net.minecraft.world.level.levelgen.placement.PlacedFeature
 import net.minecraft.world.level.levelgen.placement.PlacementModifier
 import net.minecraft.world.level.levelgen.structure.templatesystem.BlockStateMatchTest
-import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest
 import net.neoforged.neoforge.common.world.BiomeModifier
 import net.neoforged.neoforge.common.world.BiomeModifiers
-import net.neoforged.neoforge.registries.DeferredBlock
+
 import net.teamsolar.fantasy_metals.FantasyMetals
 import net.teamsolar.fantasy_metals.ModTags
 import net.teamsolar.fantasy_metals.block.ModBlocks
 import net.teamsolar.fantasy_metals.block.RotatedPillarBlockDropsXP
 
+import net.teamsolar.fantasy_metals.worldgen.ModOrePlacement.commonOrePlacement
+import net.teamsolar.fantasy_metals.worldgen.ModOrePlacement.rareOrePlacement
+import net.teamsolar.fantasy_metals.worldgen.ModOregen.Oregen.Companion.oregenTarget
+
+
 object ModOregen {
-    private val instanceMaps = mutableMapOf<String, MutableList<OregenTarget>>()
+    private val instanceMaps = mutableMapOf<String, MutableList<Oregen>>()
     fun getInstanceMaps() = instanceMaps.mapValues {(key, value) -> value.toList() }.toMap()
-    private fun registerInsideBiomes(biomesGetter: (HolderGetter<Biome>) -> HolderSet<Biome>): (OregenTarget.BiomeModifierContext).(OregenTarget) -> Unit = {
+    private fun registerInsideBiomes(biomesGetter: (HolderGetter<Biome>) -> HolderSet<Biome>): (BiomeModifierContext).(Oregen) -> Unit = {
         context.register(
             it.addKey,
             BiomeModifiers.AddFeaturesBiomeModifier(
@@ -44,28 +46,29 @@ object ModOregen {
             )
         )
     }
-    private fun registerInsideBiomes(biomeTags: TagKey<Biome>): (OregenTarget.BiomeModifierContext).(OregenTarget) -> Unit = registerInsideBiomes { it.getOrThrow(biomeTags) }
-    private val defaultBiomeModifierCallback: (OregenTarget.BiomeModifierContext).(OregenTarget) -> Unit = {
-
+    private fun registerInsideBiomes(biomeTags: TagKey<Biome>): (BiomeModifierContext).(Oregen) -> Unit = registerInsideBiomes { it.getOrThrow(biomeTags) }
+    private fun modifier(modifiers: List<PlacementModifier>): (PlacedFeaturesContext).(Oregen) -> Unit = {
+        register(it.placedKey, it.oreKey, modifiers)
     }
 
     // it's required to add multiple keys if you want to add multiple types of ore distributions
     // (see vanilla OrePlacements.ORE_DIAMOND_MEDIUM, OrePlacements.ORE_DIAMOND_LARGE, etc)
-    class OregenTarget(
+    class Oregen private constructor(
         baseBlockName: String,
-        val configuredFeaturesCallback: (ConfiguredFeaturesContext).(OregenTarget) -> Unit,
-        val placedFeaturesCallback: (PlacedFeaturesContext).(OregenTarget) -> Unit,
-        val biomeModifierCallback: (BiomeModifierContext).(OregenTarget) -> Unit,
+        val configuredFeaturesCallback: (ConfiguredFeaturesContext).(Oregen) -> Unit,
+        val placedFeaturesCallback: (PlacedFeaturesContext).(Oregen) -> Unit,
+        val biomeModifierCallback: (BiomeModifierContext).(Oregen) -> Unit,
         uniqueName: String? = null
-    ) {
+    )
+    {
         private val instance: Int
         init {
-            if(instanceMaps[baseBlockName] == null) {
+            /*if(instanceMaps[baseBlockName] == null) {
                 instanceMaps[baseBlockName] = mutableListOf()
-            }
-            val list = instanceMaps[baseBlockName]!!
-            instance = list.size + 1
-            instanceMaps[baseBlockName]!!.add(this)
+            }*/
+            val list = instanceMaps[baseBlockName]
+            instance = (list?.size ?: 0) + 1
+            // instanceMaps[baseBlockName]!!.add(this)
         }
         // Generates a key for ModConfiguredFeatures, ModPlacedFeatures, and ModBiomeModifiers
         val oreKey: ResourceKey<ConfiguredFeature<*, *>>
@@ -82,35 +85,30 @@ object ModOregen {
                 placedKey = ModPlacedFeatures.registerKey(baseBlockName + "_placed" + instance.toString())
             }
         }
-        interface ConfiguredFeaturesContext {
-            fun overworldOre(oreBlock: DeferredBlock<out Block>, deepslateOreBlock: DeferredBlock<out Block>, key: ResourceKey<ConfiguredFeature<*, *>>, size: Int = 3, discardChance: Float? = null)
-            fun netherOre(oreBlock: DeferredBlock<out Block>, key: ResourceKey<ConfiguredFeature<*, *>>, size: Int = 3, discardChance: Float? = null)
-            fun endOre(oreBlock: DeferredBlock<out Block>, key: ResourceKey<ConfiguredFeature<*, *>>, size: Int = 3, discardChance: Float? = null)
-            val stoneReplaceables: RuleTest
-            val deepslateReplaceables: RuleTest
-            val netherrackReplaceables: RuleTest
-            val endReplaceables: RuleTest
-            val context: BootstrapContext<ConfiguredFeature<*, *>>
-        }
-        interface PlacedFeaturesContext {
-            val configuredFeatures: HolderGetter<ConfiguredFeature<*, *>>
-            fun register(placedKey: ResourceKey<PlacedFeature>, oreKey: ResourceKey<ConfiguredFeature<*, *>>, modifiers: List<PlacementModifier>)
-            val context: BootstrapContext<PlacedFeature>
-        }
-        interface BiomeModifierContext {
-            val biomes: HolderGetter<Biome>
-            val placedFeatures: HolderGetter<PlacedFeature>
-            val context: BootstrapContext<BiomeModifier>
+
+        companion object {
+            fun oregenTarget(
+                baseBlockName: String,
+                configuredFeaturesCallback: (ConfiguredFeaturesContext).(Oregen) -> Unit,
+                placedFeaturesCallback: (PlacedFeaturesContext).(Oregen) -> Unit,
+                biomeModifierCallback: (BiomeModifierContext).(Oregen) -> Unit,
+                uniqueName: String? = null
+            ): Oregen {
+                return Oregen(baseBlockName, configuredFeaturesCallback, placedFeaturesCallback, biomeModifierCallback, uniqueName).also {
+                    if(instanceMaps[baseBlockName] == null) {
+                        instanceMaps[baseBlockName] = mutableListOf()
+                    }
+                    instanceMaps[baseBlockName]!!.add(it)
+                }
+            }
         }
     }
-
-
 
     init {
         FantasyMetals.LOGGER.info("Oregen object was instantiated...")
         // mythril ore
         run {
-            OregenTarget(
+            oregenTarget(
                 "mythril_ore",
                 configuredFeaturesCallback = {
                     overworldOre(
@@ -120,22 +118,16 @@ object ModOregen {
                         size = 3,
                     )
                 },
-                placedFeaturesCallback = {
-                    register(
-                        it.placedKey, it.oreKey,
-                        ModOrePlacement.commonOrePlacement(
-                            7,
-                            HeightRangePlacement.triangle(
-                                VerticalAnchor.absolute(-5),
-                                VerticalAnchor.absolute(5)
-                            ))
-                        // ModOrePlacement.commonOrePlacement(7,
-                        //                HeightRangePlacement.uniform(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(32))
+                placedFeaturesCallback = modifier(commonOrePlacement(
+                    7,
+                    HeightRangePlacement.triangle(
+                        VerticalAnchor.absolute(-5),
+                        VerticalAnchor.absolute(5)
                     )
-                },
+                )),
                 biomeModifierCallback = registerInsideBiomes(BiomeTags.IS_OVERWORLD)
             )
-            OregenTarget(
+            oregenTarget(
                 "mythril_ore",
                 configuredFeaturesCallback = {
                     overworldOre(
@@ -146,21 +138,16 @@ object ModOregen {
                         discardChance = 0.5f
                     )
                 },
-                placedFeaturesCallback = {
-                    register(
-                        it.placedKey, it.oreKey,
-                        ModOrePlacement.commonOrePlacement(
-                            7,
-                            HeightRangePlacement.uniform(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(32))
-                        )
-                    )
-                },
+                placedFeaturesCallback = modifier(commonOrePlacement(
+                    7,
+                    HeightRangePlacement.uniform(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(32))
+                )),
                 biomeModifierCallback = registerInsideBiomes(BiomeTags.IS_OVERWORLD)
             )
         }
         // adamant ore
         run {
-            OregenTarget(
+            oregenTarget(
                 "adamant_ore",
                 configuredFeaturesCallback = {
                     endOre(
@@ -169,15 +156,13 @@ object ModOregen {
                         size = 3
                     )
                 },
-                placedFeaturesCallback = {
-                    register(it.placedKey, it.oreKey,
-                        ModOrePlacement.commonOrePlacement(120,
-                            HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(80)))
-                    )
-                },
+                placedFeaturesCallback = modifier(commonOrePlacement(
+                    120,
+                    HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(80))
+                )),
                 biomeModifierCallback = registerInsideBiomes (ModTags.Biomes.BIOMES_ADAMANT_GENERATES_NORMALLY_IN)
             )
-            OregenTarget(
+            oregenTarget(
                 "adamant_ore",
                 uniqueName = "adamant_ore_highlands",
                 configuredFeaturesCallback = {
@@ -187,15 +172,13 @@ object ModOregen {
                         size = 3
                     )
                 },
-                placedFeaturesCallback = {
-                    register(it.placedKey, it.oreKey,
-                        ModOrePlacement.commonOrePlacement(240,
-                            HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(80)))
-                    )
-                },
+                placedFeaturesCallback = modifier(commonOrePlacement(
+                    240,
+                    HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(80))
+                )),
                 biomeModifierCallback = registerInsideBiomes { HolderSet.direct(it.getOrThrow(Biomes.END_HIGHLANDS))}
             )
-            OregenTarget(
+            oregenTarget(
                 "adamant_ore",
                 uniqueName = "adamant_ore_central_island",
                 configuredFeaturesCallback = {
@@ -205,18 +188,19 @@ object ModOregen {
                         size = 3
                     )
                 },
-                placedFeaturesCallback = {
-                    register(it.placedKey, it.oreKey,
-                        ModOrePlacement.rareOrePlacement(80,
-                            HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(80)))
+                placedFeaturesCallback = modifier(rareOrePlacement(
+                    80,
+                    HeightRangePlacement.uniform(
+                        VerticalAnchor.absolute(0),
+                        VerticalAnchor.absolute(80)
                     )
-                },
+                )),
                 biomeModifierCallback = registerInsideBiomes { HolderSet.direct(it.getOrThrow(Biomes.THE_END))}
             )
         }
         // orichalcum ore
         run {
-            OregenTarget(
+            oregenTarget(
                 "orichalcum_ore",
                 configuredFeaturesCallback = {
                     overworldOre(
@@ -226,20 +210,16 @@ object ModOregen {
                         size = 6,
                     )
                 },
-                placedFeaturesCallback = {
-                    register(
-                        it.placedKey, it.oreKey,
-                        ModOrePlacement.commonOrePlacement(
-                            7,
-                            HeightRangePlacement.triangle(
-                                VerticalAnchor.absolute(0),
-                                VerticalAnchor.absolute(60)
-                            ))
+                placedFeaturesCallback = modifier(commonOrePlacement(
+                    7,
+                    HeightRangePlacement.triangle(
+                        VerticalAnchor.absolute(0),
+                        VerticalAnchor.absolute(60)
                     )
-                },
+                )),
                 biomeModifierCallback = registerInsideBiomes(BiomeTags.IS_OVERWORLD)
             )
-            OregenTarget(
+            oregenTarget(
                 "orichalcum_ore",
                 configuredFeaturesCallback = {
                     overworldOre(
@@ -250,23 +230,19 @@ object ModOregen {
                         discardChance = 0.8f
                     )
                 },
-                placedFeaturesCallback = {
-                    register(
-                        it.placedKey, it.oreKey,
-                        ModOrePlacement.commonOrePlacement(
-                            7,
-                            HeightRangePlacement.uniform(
-                                VerticalAnchor.absolute(-32),
-                                VerticalAnchor.absolute(32)
-                            ))
+                placedFeaturesCallback = modifier(commonOrePlacement(
+                   7,
+                    HeightRangePlacement.uniform(
+                        VerticalAnchor.absolute(-32),
+                        VerticalAnchor.absolute(32)
                     )
-                },
+                )),
                 biomeModifierCallback = registerInsideBiomes(BiomeTags.IS_OVERWORLD)
             )
         }
         // carmot ore
         run {
-            OregenTarget(
+            oregenTarget(
                 "carmot_ore",
                 configuredFeaturesCallback = {
                     overworldOre(
@@ -276,20 +252,16 @@ object ModOregen {
                         size = 6,
                     )
                 },
-                placedFeaturesCallback = {
-                    register(
-                        it.placedKey, it.oreKey,
-                        ModOrePlacement.commonOrePlacement(
-                            7,
-                            HeightRangePlacement.triangle(
-                                VerticalAnchor.absolute(60),
-                                VerticalAnchor.absolute(120)
-                            ))
+                placedFeaturesCallback = modifier(commonOrePlacement(
+                    7,
+                    HeightRangePlacement.triangle(
+                        VerticalAnchor.absolute(60),
+                        VerticalAnchor.absolute(120)
                     )
-                },
+                )),
                 biomeModifierCallback = registerInsideBiomes(BiomeTags.IS_OVERWORLD)
             )
-            OregenTarget(
+            oregenTarget(
                 "carmot_ore",
                 configuredFeaturesCallback = {
                     overworldOre(
@@ -300,24 +272,20 @@ object ModOregen {
                         discardChance = 0.8f
                     )
                 },
-                placedFeaturesCallback = {
-                    register(
-                        it.placedKey, it.oreKey,
-                        ModOrePlacement.commonOrePlacement(
-                            7,
-                            HeightRangePlacement.uniform(
-                                VerticalAnchor.absolute(20),
-                                VerticalAnchor.absolute(70)
-                            ))
+                placedFeaturesCallback = modifier(commonOrePlacement(
+                    7,
+                    HeightRangePlacement.uniform(
+                        VerticalAnchor.absolute(20),
+                        VerticalAnchor.absolute(70)
                     )
-                },
+                )),
                 biomeModifierCallback = registerInsideBiomes(BiomeTags.IS_OVERWORLD)
             )
         }
 
         // Alexandrite
         run {
-            OregenTarget(
+            oregenTarget(
                 "alexandrite_ore",
                 configuredFeaturesCallback = {
                     overworldOre(
@@ -327,22 +295,19 @@ object ModOregen {
                         size = 3,
                     )
                 },
-                placedFeaturesCallback = {
-                    register(
-                        it.placedKey, it.oreKey,
-                        ModOrePlacement.commonOrePlacement(
-                            7,
-                            HeightRangePlacement.triangle(
-                                VerticalAnchor.absolute(-20),
-                                VerticalAnchor.absolute(20)
-                            ))
-                        // ModOrePlacement.commonOrePlacement(7,
-                        //                HeightRangePlacement.uniform(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(32))
+                placedFeaturesCallback = modifier(commonOrePlacement(
+                        7,
+                        HeightRangePlacement.triangle(
+                            VerticalAnchor.absolute(-20),
+                            VerticalAnchor.absolute(20)
+                        )
                     )
-                },
+                    // commonOrePlacement(7,
+                    //                HeightRangePlacement.uniform(VerticalAnchor.BOTTOM, VerticalAnchor.aboveBottom(32))
+                ),
                 biomeModifierCallback = registerInsideBiomes(BiomeTags.IS_OVERWORLD)
             )
-            OregenTarget(
+            oregenTarget(
                 "alexandrite_ore",
                 configuredFeaturesCallback = {
                     overworldOre(
@@ -353,21 +318,16 @@ object ModOregen {
                         discardChance = 0.5f
                     )
                 },
-                placedFeaturesCallback = {
-                    register(
-                        it.placedKey, it.oreKey,
-                        ModOrePlacement.commonOrePlacement(
-                            7,
-                            HeightRangePlacement.uniform(VerticalAnchor.absolute(-20), VerticalAnchor.aboveBottom(50))
-                        )
-                    )
-                },
+                placedFeaturesCallback = modifier(commonOrePlacement(
+                    7,
+                    HeightRangePlacement.uniform(VerticalAnchor.absolute(-20), VerticalAnchor.aboveBottom(50))
+                )),
                 biomeModifierCallback = registerInsideBiomes(BiomeTags.IS_OVERWORLD)
             )
         }
         // Black opal
         run {
-            OregenTarget(
+            oregenTarget(
                 "black_opal",
                 configuredFeaturesCallback = {
                     val blackOpalOres = mutableListOf(
@@ -391,21 +351,16 @@ object ModOregen {
                         )
                     )
                 },
-                placedFeaturesCallback = {
-                    register(
-                        it.placedKey, it.oreKey,
-                        ModOrePlacement.commonOrePlacement(
-                            6 * 20,
-                            HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(10), VerticalAnchor.belowTop(10))
-                        )
-                    )
-                },
+                placedFeaturesCallback = modifier(commonOrePlacement(
+                    6 * 20,
+                    HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(10), VerticalAnchor.belowTop(10))
+                )),
                 biomeModifierCallback = registerInsideBiomes(BiomeTags.IS_NETHER)
             )
         }
         // Tanzanite
         run {
-            OregenTarget(
+            oregenTarget(
                 "tanzanite_ore",
                 configuredFeaturesCallback = {
                     endOre(
@@ -414,21 +369,19 @@ object ModOregen {
                         size = 3
                     )
                 },
-                placedFeaturesCallback = {
-                    register(it.placedKey, it.oreKey,
-                        ModOrePlacement.commonOrePlacement(120,
-                            HeightRangePlacement.triangle(
-                                VerticalAnchor.bottom(),
-                                VerticalAnchor.aboveBottom(40)
-                            ))
+                placedFeaturesCallback = modifier(commonOrePlacement(
+                    120,
+                    HeightRangePlacement.triangle(
+                        VerticalAnchor.bottom(),
+                        VerticalAnchor.aboveBottom(40)
                     )
-                },
+                )),
                 biomeModifierCallback = registerInsideBiomes (BiomeTags.IS_END)
             )
         }
         // Sardonyx
         run {
-            OregenTarget(
+            oregenTarget(
                 "sardonyx_ore",
                 configuredFeaturesCallback = {
                     overworldOre(
@@ -440,12 +393,12 @@ object ModOregen {
                 },
                 placedFeaturesCallback = {
                     register(it.placedKey, it.oreKey,
-                        ModOrePlacement.commonOrePlacement(7,
+                        commonOrePlacement(7,
                             HeightRangePlacement.triangle(VerticalAnchor.absolute(-15), VerticalAnchor.absolute(45))))
                 },
                 biomeModifierCallback = registerInsideBiomes(BiomeTags.IS_OVERWORLD)
             )
-            OregenTarget(
+            oregenTarget(
                 "sardonyx_ore",
                 configuredFeaturesCallback = {
                     overworldOre(
@@ -456,21 +409,16 @@ object ModOregen {
                         discardChance = 0.5f
                     )
                 },
-                placedFeaturesCallback = {
-                    register(
-                        it.placedKey, it.oreKey,
-                        ModOrePlacement.commonOrePlacement(
-                            7,
-                            HeightRangePlacement.uniform(VerticalAnchor.absolute(20), VerticalAnchor.absolute(80))
-                        )
-                    )
-                },
+                placedFeaturesCallback = modifier(commonOrePlacement(
+                    7,
+                    HeightRangePlacement.uniform(VerticalAnchor.absolute(20), VerticalAnchor.absolute(80))
+                )),
                 biomeModifierCallback = registerInsideBiomes(BiomeTags.IS_OVERWORLD)
             )
         }
         // Tsavorite
         run {
-            OregenTarget(
+            oregenTarget(
                 "tsavorite_ore",
                 configuredFeaturesCallback = {
                     overworldOre(
@@ -480,14 +428,13 @@ object ModOregen {
                         size = 3
                     )
                 },
-                placedFeaturesCallback = {
-                    register(it.placedKey, it.oreKey,
-                        ModOrePlacement.commonOrePlacement(7,
-                            HeightRangePlacement.triangle(VerticalAnchor.absolute(-40), VerticalAnchor.absolute(0))))
-                },
+                placedFeaturesCallback = modifier(commonOrePlacement(
+                    7,
+                    HeightRangePlacement.triangle(VerticalAnchor.absolute(-40), VerticalAnchor.absolute(0))
+                )),
                 biomeModifierCallback = registerInsideBiomes(BiomeTags.IS_OVERWORLD)
             )
-            OregenTarget(
+            oregenTarget(
                 "sardonyx_ore",
                 configuredFeaturesCallback = {
                     overworldOre(
@@ -498,17 +445,13 @@ object ModOregen {
                         discardChance = 0.5f
                     )
                 },
-                placedFeaturesCallback = {
-                    register(
-                        it.placedKey, it.oreKey,
-                        ModOrePlacement.commonOrePlacement(
-                            7,
-                            HeightRangePlacement.uniform(VerticalAnchor.absolute(-40), VerticalAnchor.absolute(10))
-                        )
-                    )
-                },
+                placedFeaturesCallback = modifier(commonOrePlacement(
+                    7,
+                    HeightRangePlacement.uniform(VerticalAnchor.absolute(-40), VerticalAnchor.absolute(10))
+                )),
                 biomeModifierCallback = registerInsideBiomes(BiomeTags.IS_OVERWORLD)
             )
         }
     }
+
 }

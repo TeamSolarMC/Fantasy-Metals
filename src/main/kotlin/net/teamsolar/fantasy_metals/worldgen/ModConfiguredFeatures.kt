@@ -16,7 +16,6 @@ import net.neoforged.neoforge.common.Tags
 import net.neoforged.neoforge.registries.DeferredBlock
 import net.teamsolar.fantasy_metals.FantasyMetals
 import net.teamsolar.fantasy_metals.ModTags
-import net.teamsolar.fantasy_metals.block.ModBlocks
 
 
 object ModConfiguredFeatures {
@@ -36,7 +35,7 @@ object ModConfiguredFeatures {
     fun bootstrap(context: BootstrapContext<ConfiguredFeature<*, *>>) {
 
 
-        val helper = object : ModOregen.OregenTarget.ConfiguredFeaturesContext {
+        val helper = object : ConfiguredFeaturesContext {
             override val context: BootstrapContext<ConfiguredFeature<*, *>> = context
 
             override val stoneReplaceables: RuleTest = TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES)
