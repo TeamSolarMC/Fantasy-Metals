@@ -157,7 +157,7 @@ object ModOregen {
                     )
                 },
                 placedFeaturesCallback = modifier(commonOrePlacement(
-                    120,
+                    60,
                     HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(80))
                 )),
                 biomeModifierCallback = registerInsideBiomes (ModTags.Biomes.BIOMES_ADAMANT_GENERATES_NORMALLY_IN)
@@ -173,7 +173,7 @@ object ModOregen {
                     )
                 },
                 placedFeaturesCallback = modifier(commonOrePlacement(
-                    240,
+                    60,
                     HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(80))
                 )),
                 biomeModifierCallback = registerInsideBiomes { HolderSet.direct(it.getOrThrow(Biomes.END_HIGHLANDS))}
@@ -370,7 +370,7 @@ object ModOregen {
                     )
                 },
                 placedFeaturesCallback = modifier(commonOrePlacement(
-                    120,
+                    24,
                     HeightRangePlacement.triangle(
                         VerticalAnchor.bottom(),
                         VerticalAnchor.aboveBottom(40)
