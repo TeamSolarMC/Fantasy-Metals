@@ -169,12 +169,13 @@ object ModOregen {
                     endOre(
                         ModBlocks.ADAMANT_ORE,
                         it.oreKey,
-                        size = 3
+                        size = 3,
+                        discardChance = 0.65f
                     )
                 },
                 placedFeaturesCallback = modifier(
                     commonOrePlacement(
-                        60,
+                        15,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(80))
                     )
                 ),
