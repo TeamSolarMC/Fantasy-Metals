@@ -1,15 +1,6 @@
 package net.teamsolar.fantasy_metals.item
 
-import net.minecraft.resources.ResourceLocation
-import net.minecraft.world.entity.EquipmentSlotGroup
-import net.minecraft.world.entity.ai.attributes.AttributeModifier
-import net.minecraft.world.entity.ai.attributes.Attributes
-import net.minecraft.world.item.ArmorItem
-import net.minecraft.world.item.AxeItem
-import net.minecraft.world.item.HoeItem
-import net.minecraft.world.item.PickaxeItem
-import net.minecraft.world.item.ShovelItem
-import net.minecraft.world.item.SwordItem
+import net.minecraft.world.item.*
 import net.neoforged.bus.api.IEventBus
 import net.neoforged.neoforge.registries.DeferredItem
 import net.neoforged.neoforge.registries.DeferredRegister
@@ -21,6 +12,7 @@ object ModItems {
     private fun MetalEquipmentSet.thenRegister() = apply {
         ITEMS_REGISTER.registerAll()
     }
+
     val MYTHRIL_SET = object : MetalEquipmentSet(
         prefix = "mythril",
         armorMaterial = ModArmorMaterials.MYTHRIL,
@@ -36,31 +28,41 @@ object ModItems {
             // Entity base attack damage: 1
             // Mod tool tier attack damage bonus: 3
             // Entity base attack speed: 4
-            SWORD.properties = SWORD.properties.attributes(SwordItem.createAttributes(
-                tier,
-                3f,
-                -2f
-            ))
-            AXE.properties = AXE.properties.attributes(AxeItem.createAttributes(
-                tier,
-                5.0f,
-                -2.75f
-            ))
-            PICKAXE.properties = PICKAXE.properties.attributes(PickaxeItem.createAttributes(
-                tier,
-                1f,
-                -2.5f
-            ))
-            SHOVEL.properties = SHOVEL.properties.attributes(ShovelItem.createAttributes(
-                tier,
-                1.5f,
-                -2.75f
-            ))
-            HOE.properties = HOE.properties.attributes(HoeItem.createAttributes(
-                tier,
-                -3.0f,
-                0.0f
-            ))
+            SWORD.properties = SWORD.properties.attributes(
+                SwordItem.createAttributes(
+                    tier,
+                    3f,
+                    -2f
+                )
+            )
+            AXE.properties = AXE.properties.attributes(
+                AxeItem.createAttributes(
+                    tier,
+                    5.0f,
+                    -2.75f
+                )
+            )
+            PICKAXE.properties = PICKAXE.properties.attributes(
+                PickaxeItem.createAttributes(
+                    tier,
+                    1f,
+                    -2.5f
+                )
+            )
+            SHOVEL.properties = SHOVEL.properties.attributes(
+                ShovelItem.createAttributes(
+                    tier,
+                    1.5f,
+                    -2.75f
+                )
+            )
+            HOE.properties = HOE.properties.attributes(
+                HoeItem.createAttributes(
+                    tier,
+                    -3.0f,
+                    0.0f
+                )
+            )
         }
     }.thenRegister()
     val ADAMANT_SET = object : MetalEquipmentSet(
@@ -78,35 +80,51 @@ object ModItems {
             // Entity base attack damage: 1
             // Mod tool tier attack damage bonus: 4
             // Entity base attack speed: 4
-            SWORD.properties = SWORD.properties.attributes(SwordItem.createAttributes(
-                tier,
-                3.0f,
-                -2.8f
-            ))
-            AXE.properties = AXE.properties.attributes(AxeItem.createAttributes(
-                tier,
-                5.0f,
-                -3.25f
-            ))
-            PICKAXE.properties = PICKAXE.properties.attributes(PickaxeItem.createAttributes(
-                tier,
-                1f,
-                -3.1f
-            ))
-            SHOVEL.properties = SHOVEL.properties.attributes(ShovelItem.createAttributes(
-                tier,
-                1.5f,
-                -3.25f
-            ))
-            HOE.properties = HOE.properties.attributes(HoeItem.createAttributes(
-                tier,
-                -4.0f,
-                -1.0f
-            ))
-            for(entry in toolEntries.toSet() + combatItemEntries.toSet() + ingredientEntries.toSet()) {
+            SWORD.properties = SWORD.properties.attributes(
+                SwordItem.createAttributes(
+                    tier,
+                    3.0f,
+                    -2.8f
+                )
+            )
+            AXE.properties = AXE.properties.attributes(
+                AxeItem.createAttributes(
+                    tier,
+                    5.0f,
+                    -3.25f
+                )
+            )
+            PICKAXE.properties = PICKAXE.properties.attributes(
+                PickaxeItem.createAttributes(
+                    tier,
+                    1f,
+                    -3.1f
+                )
+            )
+            SHOVEL.properties = SHOVEL.properties.attributes(
+                ShovelItem.createAttributes(
+                    tier,
+                    1.5f,
+                    -3.25f
+                )
+            )
+            HOE.properties = HOE.properties.attributes(
+                HoeItem.createAttributes(
+                    tier,
+                    -4.0f,
+                    -1.0f
+                )
+            )
+            for (entry in toolEntries.toSet() + combatItemEntries.toSet() + ingredientEntries.toSet()) {
                 entry.properties = entry.properties.fireResistant()
             }
-            BOOTS.properties = BOOTS.properties.attributes(armorAndToughness(armor = 4.0, toughness = 1.0, type = ArmorItem.Type.BOOTS))
+            BOOTS.properties = BOOTS.properties.attributes(
+                armorAndToughness(
+                    armor = 4.0,
+                    toughness = 1.0,
+                    type = ArmorItem.Type.BOOTS
+                )
+            )
         }
     }.thenRegister()
     val ORICHALCUM_SET = object : MetalEquipmentSet(
@@ -124,16 +142,20 @@ object ModItems {
             // Entity base attack damage: 1
             // Mod tool tier attack damage bonus: 4
             // Entity base attack speed: 4
-            AXE.properties = AXE.properties.attributes(AxeItem.createAttributes(
-                tier,
-                5f,
-                -3f
-            ))
-            HOE.properties = HOE.properties.attributes(HoeItem.createAttributes(
-                tier,
-                -4f,
-                0f
-            ))
+            AXE.properties = AXE.properties.attributes(
+                AxeItem.createAttributes(
+                    tier,
+                    5f,
+                    -3f
+                )
+            )
+            HOE.properties = HOE.properties.attributes(
+                HoeItem.createAttributes(
+                    tier,
+                    -4f,
+                    0f
+                )
+            )
         }
     }.thenRegister()
     val CARMOT_SET = MetalEquipmentSet(
@@ -154,8 +176,10 @@ object ModItems {
     val BLACK_OPAL_SET = GemItemSet(ITEMS_REGISTER.registerSimpleItem("black_opal"))
     val TSAVORITE_SET = GemItemSet(ITEMS_REGISTER.registerSimpleItem("tsavorite"))
 
-    val TEST_ITEM: DeferredItem<BlockCharacteristicCheckerItem> = ITEMS_REGISTER.register("test_item", Supplier{BlockCharacteristicCheckerItem()})
-    val ORE_SCANNER_ITEM: DeferredItem<ChunkOreDetectorItem> = ITEMS_REGISTER.register("ore_scanner_item", Supplier{ChunkOreDetectorItem()})
+    val TEST_ITEM: DeferredItem<BlockCharacteristicCheckerItem> =
+        ITEMS_REGISTER.register("test_item", Supplier { BlockCharacteristicCheckerItem() })
+    val ORE_SCANNER_ITEM: DeferredItem<ChunkOreDetectorItem> =
+        ITEMS_REGISTER.register("ore_scanner_item", Supplier { ChunkOreDetectorItem() })
 
     val GEMS = listOf(
         SARDONYX_SET,

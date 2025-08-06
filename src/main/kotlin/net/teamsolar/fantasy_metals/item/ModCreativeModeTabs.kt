@@ -3,26 +3,22 @@ package net.teamsolar.fantasy_metals.item
 import net.minecraft.core.registries.Registries
 import net.minecraft.network.chat.Component
 import net.minecraft.world.item.CreativeModeTab
-import net.minecraft.world.item.CreativeModeTab.DisplayItemsGenerator
 import net.minecraft.world.item.CreativeModeTab.ItemDisplayParameters
-import net.minecraft.world.item.ItemStack
-import net.minecraft.world.level.block.Block
 import net.neoforged.bus.api.IEventBus
-import net.neoforged.neoforge.registries.DeferredBlock
 import net.neoforged.neoforge.registries.DeferredHolder
 import net.neoforged.neoforge.registries.DeferredRegister
 import net.teamsolar.fantasy_metals.FantasyMetals
-import net.teamsolar.fantasy_metals.FantasyMetals.Companion
 import net.teamsolar.fantasy_metals.block.ModBlocks
 import net.teamsolar.fantasy_metals.datagen.ModBlockInputHelper
 import java.util.function.Supplier
 
 
-object ModCreativeModeTabs: ModBlockInputHelper {
+object ModCreativeModeTabs : ModBlockInputHelper {
     val CREATIVE_MODE_TABS: DeferredRegister<CreativeModeTab> =
         DeferredRegister.create(Registries.CREATIVE_MODE_TAB, FantasyMetals.MODID)
 
-    val TOOLS_TAB: DeferredHolder<CreativeModeTab, CreativeModeTab> = CREATIVE_MODE_TABS.register("fantasy_metals_items",
+    val TOOLS_TAB: DeferredHolder<CreativeModeTab, CreativeModeTab> = CREATIVE_MODE_TABS.register(
+        "fantasy_metals_items",
         Supplier {
             CreativeModeTab.builder()
                 .title(Component.translatable("itemGroup.fantasy_metals")) //The language key for the title of your CreativeModeTab
@@ -36,7 +32,7 @@ object ModCreativeModeTabs: ModBlockInputHelper {
                             output.accept(item)
                         }
                     }
-                    for(block in BLOCKS) {
+                    for (block in BLOCKS) {
                         output.accept(block.asItem())
                     }
                     addSet(ModItems.MYTHRIL_SET)
@@ -44,7 +40,7 @@ object ModCreativeModeTabs: ModBlockInputHelper {
                     addSet(ModItems.ORICHALCUM_SET)
                     addSet(ModItems.CARMOT_SET)
 
-                    for(gem in ModItems.GEMS) {
+                    for (gem in ModItems.GEMS) {
                         output.accept(gem.GEM)
                     }
                     // output.accept(EXAMPLE_ITEM.get()) // Add the example item to the tab. For your own tabs, this method is preferred over the event

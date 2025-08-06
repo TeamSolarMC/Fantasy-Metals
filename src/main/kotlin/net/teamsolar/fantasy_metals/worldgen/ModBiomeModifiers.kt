@@ -19,8 +19,8 @@ object ModBiomeModifiers {
             override val placedFeatures: HolderGetter<PlacedFeature> = context.lookup(Registries.PLACED_FEATURE)
             override val context: BootstrapContext<BiomeModifier> = context
         }
-        for((oreName, targets) in ModOregen.getInstanceMaps()) {
-            for(target in targets) {
+        for ((oreName, targets) in ModOregen.getInstanceMaps()) {
+            for (target in targets) {
                 target.biomeModifierCallback.invoke(helper, target)
             }
         }
@@ -37,7 +37,7 @@ object ModBiomeModifiers {
         )*/
     }
 
-    public fun registerKey(name: String): ResourceKey<BiomeModifier> {
+    fun registerKey(name: String): ResourceKey<BiomeModifier> {
         return ResourceKey.create<BiomeModifier>(
             NeoForgeRegistries.Keys.BIOME_MODIFIERS,
             ResourceLocation.fromNamespaceAndPath(FantasyMetals.MODID, name)

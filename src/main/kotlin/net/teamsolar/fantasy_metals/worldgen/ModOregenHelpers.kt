@@ -13,9 +13,28 @@ import net.neoforged.neoforge.common.world.BiomeModifier
 import net.neoforged.neoforge.registries.DeferredBlock
 
 interface ConfiguredFeaturesContext {
-    fun overworldOre(oreBlock: DeferredBlock<out Block>, deepslateOreBlock: DeferredBlock<out Block>, key: ResourceKey<ConfiguredFeature<*, *>>, size: Int = 3, discardChance: Float? = null)
-    fun netherOre(oreBlock: DeferredBlock<out Block>, key: ResourceKey<ConfiguredFeature<*, *>>, size: Int = 3, discardChance: Float? = null)
-    fun endOre(oreBlock: DeferredBlock<out Block>, key: ResourceKey<ConfiguredFeature<*, *>>, size: Int = 3, discardChance: Float? = null)
+    fun overworldOre(
+        oreBlock: DeferredBlock<out Block>,
+        deepslateOreBlock: DeferredBlock<out Block>,
+        key: ResourceKey<ConfiguredFeature<*, *>>,
+        size: Int = 3,
+        discardChance: Float? = null
+    )
+
+    fun netherOre(
+        oreBlock: DeferredBlock<out Block>,
+        key: ResourceKey<ConfiguredFeature<*, *>>,
+        size: Int = 3,
+        discardChance: Float? = null
+    )
+
+    fun endOre(
+        oreBlock: DeferredBlock<out Block>,
+        key: ResourceKey<ConfiguredFeature<*, *>>,
+        size: Int = 3,
+        discardChance: Float? = null
+    )
+
     val stoneReplaceables: RuleTest
     val deepslateReplaceables: RuleTest
     val netherrackReplaceables: RuleTest
@@ -25,7 +44,12 @@ interface ConfiguredFeaturesContext {
 
 interface PlacedFeaturesContext {
     val configuredFeatures: HolderGetter<ConfiguredFeature<*, *>>
-    fun register(placedKey: ResourceKey<PlacedFeature>, oreKey: ResourceKey<ConfiguredFeature<*, *>>, modifiers: List<PlacementModifier>)
+    fun register(
+        placedKey: ResourceKey<PlacedFeature>,
+        oreKey: ResourceKey<ConfiguredFeature<*, *>>,
+        modifiers: List<PlacementModifier>
+    )
+
     val context: BootstrapContext<PlacedFeature>
 }
 

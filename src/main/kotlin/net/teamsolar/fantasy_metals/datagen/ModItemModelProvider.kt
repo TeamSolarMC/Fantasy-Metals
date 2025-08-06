@@ -22,17 +22,20 @@ import net.teamsolar.fantasy_metals.item.ModItems
 class ModItemModelProvider(output: PackOutput, existingFileHelper: ExistingFileHelper) :
     ItemModelProvider(output, FantasyMetals.MODID, existingFileHelper) {
     override fun registerModels() {
-        val providerHelper = object: ItemModelProviderHelper {
+        val providerHelper = object : ItemModelProviderHelper {
             override fun handheldItem(item: DeferredItem<out Item>) {
                 this@ModItemModelProvider.handheldItem(item)
             }
+
             override fun simpleItem(item: DeferredItem<out Item>) {
                 this@ModItemModelProvider.simpleItem(item)
             }
+
             override fun trimmedArmorItem(armorItem: DeferredItem<out ArmorItem>) {
                 this@ModItemModelProvider.trimmedArmorItem(armorItem)
             }
         }
+
         fun MetalEquipmentSet.thenProvideModels() = providerHelper.register()
         fun GemItemSet.thenProvideModels() = providerHelper.register()
 
@@ -41,10 +44,11 @@ class ModItemModelProvider(output: PackOutput, existingFileHelper: ExistingFileH
         ModItems.ORICHALCUM_SET.thenProvideModels()
         ModItems.CARMOT_SET.thenProvideModels()
 
-        for(gemItemSet in ModItems.GEMS) {
+        for (gemItemSet in ModItems.GEMS) {
             gemItemSet.thenProvideModels()
         }
     }
+
     fun <T : Item> handheldItem(item: DeferredItem<T>): ItemModelBuilder {
         return withExistingParent(
             item.id.path,
@@ -54,6 +58,7 @@ class ModItemModelProvider(output: PackOutput, existingFileHelper: ExistingFileH
             modLoc("item/" + item.id.path)
         )
     }
+
     fun <T : Item> simpleItem(item: DeferredItem<T>): ItemModelBuilder {
         return withExistingParent(
             item.id.path,
@@ -65,6 +70,7 @@ class ModItemModelProvider(output: PackOutput, existingFileHelper: ExistingFileH
     }
 
     private val trimMaterials: LinkedHashMap<ResourceKey<TrimMaterial>, Float> = LinkedHashMap()
+
     init {
         trimMaterials[TrimMaterials.QUARTZ] = 0.1F
         trimMaterials[TrimMaterials.IRON] = 0.2F

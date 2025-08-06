@@ -12,7 +12,8 @@ import net.teamsolar.fantasy_metals.worldgen.ModConfiguredFeatures
 import net.teamsolar.fantasy_metals.worldgen.ModPlacedFeatures
 import java.util.concurrent.CompletableFuture
 
-class ModDatapackProvider(output: PackOutput, registries: CompletableFuture<HolderLookup.Provider>): DatapackBuiltinEntriesProvider(output, registries, BUILDER, setOf(FantasyMetals.MODID)) {
+class ModDatapackProvider(output: PackOutput, registries: CompletableFuture<HolderLookup.Provider>) :
+    DatapackBuiltinEntriesProvider(output, registries, BUILDER, setOf(FantasyMetals.MODID)) {
     companion object {
         val BUILDER: RegistrySetBuilder = RegistrySetBuilder()
             .add(Registries.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap)

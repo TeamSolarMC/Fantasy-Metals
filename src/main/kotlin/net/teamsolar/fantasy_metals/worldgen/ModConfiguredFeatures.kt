@@ -42,12 +42,18 @@ object ModConfiguredFeatures {
             override val deepslateReplaceables: RuleTest = TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES)
             override val netherrackReplaceables: RuleTest = TagMatchTest(Tags.Blocks.ORE_BEARING_GROUND_NETHERRACK)
             override val endReplaceables: RuleTest = TagMatchTest(ModTags.Blocks.ORE_BEARING_ENDSTONE)
-            override fun overworldOre(oreBlock: DeferredBlock<out Block>, deepslateOreBlock: DeferredBlock<out Block>, key: ResourceKey<ConfiguredFeature<*, *>>, size: Int, discardChance: Float?) {
+            override fun overworldOre(
+                oreBlock: DeferredBlock<out Block>,
+                deepslateOreBlock: DeferredBlock<out Block>,
+                key: ResourceKey<ConfiguredFeature<*, *>>,
+                size: Int,
+                discardChance: Float?
+            ) {
                 val overworldOres = listOf(
                     OreConfiguration.target(stoneReplaceables, oreBlock.get().defaultBlockState()),
                     OreConfiguration.target(deepslateReplaceables, deepslateOreBlock.get().defaultBlockState())
                 )
-                if(discardChance != null) {
+                if (discardChance != null) {
                     register(
                         context,
                         key,
@@ -63,13 +69,24 @@ object ModConfiguredFeatures {
                     )
                 }
             }
-            override fun netherOre(oreBlock: DeferredBlock<out Block>, key: ResourceKey<ConfiguredFeature<*, *>>, size: Int, discardChance: Float?) {
-                if(discardChance != null) {
+
+            override fun netherOre(
+                oreBlock: DeferredBlock<out Block>,
+                key: ResourceKey<ConfiguredFeature<*, *>>,
+                size: Int,
+                discardChance: Float?
+            ) {
+                if (discardChance != null) {
                     register(
                         context,
                         key,
                         Feature.ORE,
-                        OreConfiguration(netherrackReplaceables, oreBlock.get().defaultBlockState(), size, discardChance)
+                        OreConfiguration(
+                            netherrackReplaceables,
+                            oreBlock.get().defaultBlockState(),
+                            size,
+                            discardChance
+                        )
                     )
                 } else {
                     register(
@@ -80,8 +97,14 @@ object ModConfiguredFeatures {
                     )
                 }
             }
-            override fun endOre(oreBlock: DeferredBlock<out Block>, key: ResourceKey<ConfiguredFeature<*, *>>, size: Int, discardChance: Float?) {
-                if(discardChance != null) {
+
+            override fun endOre(
+                oreBlock: DeferredBlock<out Block>,
+                key: ResourceKey<ConfiguredFeature<*, *>>,
+                size: Int,
+                discardChance: Float?
+            ) {
+                if (discardChance != null) {
                     register(
                         context,
                         key,
@@ -101,8 +124,8 @@ object ModConfiguredFeatures {
 
 
 
-        for((oreName, targets) in ModOregen.getInstanceMaps()) {
-            for(target in targets) {
+        for ((oreName, targets) in ModOregen.getInstanceMaps()) {
+            for (target in targets) {
                 target.configuredFeaturesCallback.invoke(helper, target)
             }
         }

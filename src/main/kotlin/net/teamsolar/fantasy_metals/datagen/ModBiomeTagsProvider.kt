@@ -5,7 +5,6 @@ import net.minecraft.data.PackOutput
 import net.minecraft.data.tags.BiomeTagsProvider
 import net.minecraft.tags.BiomeTags
 import net.minecraft.world.level.biome.Biomes
-import net.neoforged.neoforge.common.data.BlockTagsProvider
 import net.neoforged.neoforge.common.data.ExistingFileHelper
 import net.teamsolar.fantasy_metals.FantasyMetals
 import net.teamsolar.fantasy_metals.ModTags

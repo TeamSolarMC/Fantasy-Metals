@@ -26,22 +26,28 @@ interface ProviderHelper {
         get() = BuiltInRegistries.ITEM.getKey(this).path
 }
 
-interface ItemModelProviderHelper: ProviderHelper {
+interface ItemModelProviderHelper : ProviderHelper {
     fun handheldItem(item: DeferredItem<out Item>)
     fun simpleItem(item: DeferredItem<out Item>)
     fun trimmedArmorItem(armorItem: DeferredItem<out ArmorItem>)
 }
 
-interface BlockStateProviderHelper: ProviderHelper {
+interface BlockStateProviderHelper : ProviderHelper {
     fun blockWithItem(block: DeferredBlock<Block>)
 }
 
-interface RecipeProviderHelper: ProviderHelper {
+interface RecipeProviderHelper : ProviderHelper {
     fun inventoryTrigger(predicates: ItemPredicate): Criterion<InventoryChangeTrigger.TriggerInstance>
     fun getHasName(item: ItemLike): String
     fun hasInInventory(item: ItemLike): Criterion<InventoryChangeTrigger.TriggerInstance>
 
-    fun basicBlastingAndSmeltingRecipe(input: Item, outputItem: Item, output: RecipeOutput, category: RecipeCategory = RecipeCategory.MISC, xp: Float = 0.1f) {
+    fun basicBlastingAndSmeltingRecipe(
+        input: Item,
+        outputItem: Item,
+        output: RecipeOutput,
+        category: RecipeCategory = RecipeCategory.MISC,
+        xp: Float = 0.1f
+    ) {
         val unqualifiedItemName = input.idWithoutNamespace
         SimpleCookingRecipeBuilder.blasting(
             Ingredient.of(input),
@@ -62,12 +68,19 @@ interface RecipeProviderHelper: ProviderHelper {
             .unlockedBy(getHasName(input), hasInInventory(input))
             .save(output, ResourceLocation.withDefaultNamespace(unqualifiedItemName + "_smelting"))
     }
+
     fun blockFromItem(block: ItemLike, item: ItemLike, output: RecipeOutput) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, item, 9)
             .pattern("A")
             .define('A', block)
             .unlockedBy(getHasName(block), hasInInventory(block))
-            .save(output, ResourceLocation.fromNamespaceAndPath(FantasyMetals.MODID, "${item.asItem().idWithoutNamespace}_from_${block.asItem().idWithoutNamespace}"))
+            .save(
+                output,
+                ResourceLocation.fromNamespaceAndPath(
+                    FantasyMetals.MODID,
+                    "${item.asItem().idWithoutNamespace}_from_${block.asItem().idWithoutNamespace}"
+                )
+            )
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, block)
             .pattern("AAA")
@@ -75,16 +88,23 @@ interface RecipeProviderHelper: ProviderHelper {
             .pattern("AAA")
             .define('A', item)
             .unlockedBy(getHasName(item), hasInInventory(item))
-            .save(output, ResourceLocation.fromNamespaceAndPath(FantasyMetals.MODID, "${block.asItem().idWithoutNamespace}_from_${item.asItem().idWithoutNamespace}"))
+            .save(
+                output,
+                ResourceLocation.fromNamespaceAndPath(
+                    FantasyMetals.MODID,
+                    "${block.asItem().idWithoutNamespace}_from_${item.asItem().idWithoutNamespace}"
+                )
+            )
     }
 }
 
-interface ModBlockInputHelper: ProviderHelper {
+interface ModBlockInputHelper : ProviderHelper {
     val ORE_BLOCKS: List<DeferredBlock<out Block>>
     val RAW_BLOCKS: List<DeferredBlock<out Block>>
     val METAL_BLOCKS: List<DeferredBlock<out Block>>
     val BLOCKS: List<DeferredBlock<out Block>>
         get() = ModBlocks.ORE_BLOCKS + ModBlocks.RAW_BLOCKS + ModBlocks.METAL_BLOCKS
+
     fun metalBlocksWithPrefix(prefix: String): List<DeferredBlock<out Block>> = METAL_BLOCKS
         .filter { it.asItem().idWithoutNamespace.matches(Regex(prefix + "_block")) }
 
@@ -93,18 +113,21 @@ interface ModBlockInputHelper: ProviderHelper {
 
     fun rawBlocksWithPrefix(prefix: String): List<DeferredBlock<out Block>> = RAW_BLOCKS
         .filter { it.asItem().idWithoutNamespace.matches(Regex("raw_" + prefix + "_block")) }
-    fun blocksWithPrefix(prefix: String) = metalBlocksWithPrefix(prefix) + oreBlocksWithPrefix(prefix) + rawBlocksWithPrefix(prefix)
+
+    fun blocksWithPrefix(prefix: String) =
+        metalBlocksWithPrefix(prefix) + oreBlocksWithPrefix(prefix) + rawBlocksWithPrefix(prefix)
 }
 
-interface ItemTagsProviderHelper: ProviderHelper {
+interface ItemTagsProviderHelper : ProviderHelper {
     fun tag(tagKey: TagKey<Item>): IntrinsicHolderTagsProvider.IntrinsicTagAppender<Item>
     fun TagKey<Item>.add(t: Item) {
         tag(this).add(t)
     }
+
     fun copy(blockTag: TagKey<Block>, itemTag: TagKey<Item>)
 }
 
-interface BlockTagsProviderHelper: ProviderHelper {
+interface BlockTagsProviderHelper : ProviderHelper {
     fun tag(tagKey: TagKey<Block>): IntrinsicHolderTagsProvider.IntrinsicTagAppender<Block>
     fun TagKey<Block>.add(t: Block) {
         tag(this).add(t)

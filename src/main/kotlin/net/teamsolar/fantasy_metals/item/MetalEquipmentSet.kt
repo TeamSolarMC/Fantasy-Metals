@@ -25,10 +25,10 @@ open class MetalEquipmentSet(
     val armorMaterial: Holder<ArmorMaterial>,
     protected val tier: Tier,
     armorDurabilities: Map<ArmorItem.Type, Int> // For armor; e.g.
-        // Iron armor has a durability factor of 15 and a helmet has a base durability of 11,
-        // so an iron helmet has a durability of 15 * 11 = 165.
-    ) : ItemSet() {
-    constructor(prefix: String, armorMaterial: Holder<ArmorMaterial>, tier: Tier, durabilityFactor: Int): this(
+    // Iron armor has a durability factor of 15 and a helmet has a base durability of 11,
+    // so an iron helmet has a durability of 15 * 11 = 165.
+) : ItemSet() {
+    constructor(prefix: String, armorMaterial: Holder<ArmorMaterial>, tier: Tier, durabilityFactor: Int) : this(
         prefix, armorMaterial, tier, armorDurabilities = mapOf(
             ArmorItem.Type.HELMET to ArmorItem.Type.HELMET.getDurability(durabilityFactor),
             ArmorItem.Type.CHESTPLATE to ArmorItem.Type.CHESTPLATE.getDurability(durabilityFactor),
@@ -38,33 +38,68 @@ open class MetalEquipmentSet(
     )
 
     // provide default constructors for all items
-    val SWORD = prefix + "_sword" properties Item.Properties().attributes(SwordItem.createAttributes(tier, 3, -2.4f)) constructor {SwordItem(tier, it)}
-    val SHOVEL = prefix + "_shovel" properties Item.Properties().attributes(ShovelItem.createAttributes(tier, 1.5f, -3.0f)) constructor {ShovelItem(tier, it)}
-    val PICKAXE = prefix + "_pickaxe" properties Item.Properties().attributes(PickaxeItem.createAttributes(tier, 1.0f, -2.8f)) constructor {PickaxeItem(tier, it)}
-    val AXE = prefix + "_axe" properties Item.Properties().attributes(AxeItem.createAttributes(tier, 6.0f, -3.1f)) constructor {AxeItem(tier, it)}
-    val HOE = prefix + "_hoe" properties Item.Properties().attributes(HoeItem.createAttributes(tier, -2.0f, -1.0f)) constructor {HoeItem(tier, it)}
+    val SWORD = prefix + "_sword" properties Item.Properties()
+        .attributes(SwordItem.createAttributes(tier, 3, -2.4f)) constructor { SwordItem(tier, it) }
+    val SHOVEL = prefix + "_shovel" properties Item.Properties()
+        .attributes(ShovelItem.createAttributes(tier, 1.5f, -3.0f)) constructor { ShovelItem(tier, it) }
+    val PICKAXE = prefix + "_pickaxe" properties Item.Properties()
+        .attributes(PickaxeItem.createAttributes(tier, 1.0f, -2.8f)) constructor { PickaxeItem(tier, it) }
+    val AXE = prefix + "_axe" properties Item.Properties()
+        .attributes(AxeItem.createAttributes(tier, 6.0f, -3.1f)) constructor { AxeItem(tier, it) }
+    val HOE = prefix + "_hoe" properties Item.Properties()
+        .attributes(HoeItem.createAttributes(tier, -2.0f, -1.0f)) constructor { HoeItem(tier, it) }
     /*
      * see neoforge-21.1.79-minecraft-merged.jar!/net/minecraft/world/item/Items.java:996
      * for default attributes (attack damage and speed) of items
      */
 
-    val HELMET = prefix + "_helmet" properties Item.Properties().durability(armorDurabilities[ArmorItem.Type.HELMET]!!) constructor {ArmorItem(armorMaterial, ArmorItem.Type.HELMET, it)}
-    val CHESTPLATE = prefix + "_chestplate" properties Item.Properties().durability(armorDurabilities[ArmorItem.Type.CHESTPLATE]!!) constructor {ArmorItem(armorMaterial, ArmorItem.Type.CHESTPLATE, it)}
-    val LEGGINGS = prefix + "_leggings" properties Item.Properties().durability(armorDurabilities[ArmorItem.Type.LEGGINGS]!!) constructor {ArmorItem(armorMaterial, ArmorItem.Type.LEGGINGS, it)}
-    val BOOTS = prefix + "_boots" properties  Item.Properties().durability(armorDurabilities[ArmorItem.Type.BOOTS]!!) constructor {ArmorItem(armorMaterial, ArmorItem.Type.BOOTS, it)}
+    val HELMET = prefix + "_helmet" properties Item.Properties()
+        .durability(armorDurabilities[ArmorItem.Type.HELMET]!!) constructor {
+        ArmorItem(
+            armorMaterial,
+            ArmorItem.Type.HELMET,
+            it
+        )
+    }
+    val CHESTPLATE = prefix + "_chestplate" properties Item.Properties()
+        .durability(armorDurabilities[ArmorItem.Type.CHESTPLATE]!!) constructor {
+        ArmorItem(
+            armorMaterial,
+            ArmorItem.Type.CHESTPLATE,
+            it
+        )
+    }
+    val LEGGINGS = prefix + "_leggings" properties Item.Properties()
+        .durability(armorDurabilities[ArmorItem.Type.LEGGINGS]!!) constructor {
+        ArmorItem(
+            armorMaterial,
+            ArmorItem.Type.LEGGINGS,
+            it
+        )
+    }
+    val BOOTS = prefix + "_boots" properties Item.Properties()
+        .durability(armorDurabilities[ArmorItem.Type.BOOTS]!!) constructor {
+        ArmorItem(
+            armorMaterial,
+            ArmorItem.Type.BOOTS,
+            it
+        )
+    }
 
-    val INGOT = prefix + "_ingot" entry {Item(it)}
-    val NUGGET = prefix + "_nugget" entry {Item(it)}
-    val RAW = "raw_$prefix" entry {Item(it)}
+    val INGOT = prefix + "_ingot" entry { Item(it) }
+    val NUGGET = prefix + "_nugget" entry { Item(it) }
+    val RAW = "raw_$prefix" entry { Item(it) }
 
     val INGOT_TAG: TagKey<Item> = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "ingots/$prefix"))
     val NUGGET_TAG: TagKey<Item> = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "nuggets/$prefix"))
     val RAW_TAG: TagKey<Item> = ItemTags.create(ResourceLocation.fromNamespaceAndPath("c", "raw_materials/$prefix"))
     val ORE_TAG: TagKey<Block> = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "ores/$prefix"))
     val ORE_TAG_ITEM: TagKey<Item> = ItemTags.create(ORE_TAG.location)
-    val RAW_STORAGE_TAG: TagKey<Block> = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "storage_blocks/raw_$prefix"))
+    val RAW_STORAGE_TAG: TagKey<Block> =
+        BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "storage_blocks/raw_$prefix"))
     val RAW_STORAGE_TAG_ITEM: TagKey<Item> = ItemTags.create(RAW_STORAGE_TAG.location)
-    val STORAGE_TAG: TagKey<Block> = BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "storage_blocks/$prefix"))
+    val STORAGE_TAG: TagKey<Block> =
+        BlockTags.create(ResourceLocation.fromNamespaceAndPath("c", "storage_blocks/$prefix"))
     val STORAGE_TAG_ITEM: TagKey<Item> = ItemTags.create(STORAGE_TAG.location)
 
     val INCORRECT_FOR_THIS_TOOL: TagKey<Block> = tier.incorrectBlocksForDrops
@@ -89,7 +124,11 @@ open class MetalEquipmentSet(
         RAW
     )
 
-    protected fun armorAndToughness(armor: Double = 0.0, toughness: Double = 0.0, type: ArmorItem.Type): ItemAttributeModifiers = ItemAttributeModifiers.builder().add(
+    protected fun armorAndToughness(
+        armor: Double = 0.0,
+        toughness: Double = 0.0,
+        type: ArmorItem.Type
+    ): ItemAttributeModifiers = ItemAttributeModifiers.builder().add(
         Attributes.ARMOR,
         AttributeModifier(
             // ResourceLocation.withDefaultNamespace("armor." + type.getName()),
@@ -111,24 +150,24 @@ open class MetalEquipmentSet(
 
     open val tools: List<DeferredItem<out Item>>
         get() {
-            if(toolEntries.any {it.actual == null}) {
+            if (toolEntries.any { it.actual == null }) {
                 throw IllegalStateException("Items not registered yet")
             }
-            return toolEntries.map {it.actual!!}
+            return toolEntries.map { it.actual!! }
         }
     open val combatItems: List<DeferredItem<out Item>>
         get() {
-            if(combatItemEntries.any {it.actual == null}) {
+            if (combatItemEntries.any { it.actual == null }) {
                 throw IllegalStateException("Items not registered yet")
             }
-            return combatItemEntries.map {it.actual!!}
+            return combatItemEntries.map { it.actual!! }
         }
     open val ingredients: List<DeferredItem<out Item>>
         get() {
-            if(ingredientEntries.any {it.actual == null}) {
+            if (ingredientEntries.any { it.actual == null }) {
                 throw IllegalStateException("Items not registered yet")
             }
-            return ingredientEntries.map {it.actual!!}
+            return ingredientEntries.map { it.actual!! }
         }
 
     open fun ItemModelProviderHelper.register() {
@@ -147,6 +186,7 @@ open class MetalEquipmentSet(
         trimmedArmorItem(LEGGINGS.actual!!)
         trimmedArmorItem(BOOTS.actual!!)
     }
+
     open fun ItemTagsProviderHelper.addTags() {
         tag(ItemTags.TRIMMABLE_ARMOR).add(
             HELMET.item(),
@@ -180,22 +220,23 @@ open class MetalEquipmentSet(
         copy(STORAGE_TAG, STORAGE_TAG_ITEM)
         copy(RAW_STORAGE_TAG, RAW_STORAGE_TAG_ITEM)
     }
-    open fun<T> T.addTags()
-    where T: BlockTagsProviderHelper, T: ModBlockInputHelper {
-        for(ore in oreBlocksWithPrefix(prefix)) {
+
+    open fun <T> T.addTags()
+            where T : BlockTagsProviderHelper, T : ModBlockInputHelper {
+        for (ore in oreBlocksWithPrefix(prefix)) {
             val oreBlock = ore.get()
-            if(ore.asItem().idWithoutNamespace.matches(Regex("deepslate_.*"))) {
+            if (ore.asItem().idWithoutNamespace.matches(Regex("deepslate_.*"))) {
                 tag(Tags.Blocks.ORES_IN_GROUND_DEEPSLATE).add(oreBlock)
             }
             tag(ORE_TAG).add(oreBlock)
             tag(BlockTags.MINEABLE_WITH_PICKAXE).add(oreBlock)
         }
-        for(metalBlock in metalBlocksWithPrefix(prefix)) {
+        for (metalBlock in metalBlocksWithPrefix(prefix)) {
             tag(STORAGE_TAG).add(metalBlock.get())
             tag(BlockTags.BEACON_BASE_BLOCKS).add(metalBlock.get())
             tag(BlockTags.MINEABLE_WITH_PICKAXE).add(metalBlock.get())
         }
-        for(rawBlock in rawBlocksWithPrefix(prefix)) {
+        for (rawBlock in rawBlocksWithPrefix(prefix)) {
             tag(RAW_STORAGE_TAG).add(rawBlock.get())
             tag(BlockTags.MINEABLE_WITH_PICKAXE).add(rawBlock.get())
         }
@@ -203,17 +244,20 @@ open class MetalEquipmentSet(
         tag(Tags.Blocks.STORAGE_BLOCKS).addTag(STORAGE_TAG)
         tag(Tags.Blocks.STORAGE_BLOCKS).addTag(RAW_STORAGE_TAG)
     }
+
     open fun BlockStateProviderHelper.register() {
 
     }
-    protected fun <T: Item> DeferredRegister.Items.doRegister(entry: Entry<T>) {
+
+    protected fun <T : Item> DeferredRegister.Items.doRegister(entry: Entry<T>) {
         // this is type-safe with the generic T;
         // the version where you iterate through, register, & set projected types isn't type safe (for reasons)
         entry.actual = register(entry.registryKey, entry.constructor)
     }
+
     protected open fun setOfEntries() = toolEntries.toSet() + combatItemEntries.toSet() + ingredientEntries.toSet()
     open fun DeferredRegister.Items.registerAll() {
-        for(entry in (setOfEntries())) {
+        for (entry in (setOfEntries())) {
             // entry.actual = register(entry.registryKey, entry.constructor)
             doRegister(entry)
         }
@@ -222,8 +266,9 @@ open class MetalEquipmentSet(
     open fun DeferredRegister.Blocks.registerAll() {
 
     }
-    open fun<T> T.buildRecipes(output: RecipeOutput)
-    where T: RecipeProviderHelper, T: ModBlockInputHelper {
+
+    open fun <T> T.buildRecipes(output: RecipeOutput)
+            where T : RecipeProviderHelper, T : ModBlockInputHelper {
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, SWORD.item())
             .pattern(" A ")
             .pattern(" A ")
@@ -346,16 +391,22 @@ open class MetalEquipmentSet(
             .pattern("AAA")
             .define('A', NUGGET.item())
             .unlockedBy(getHasName(NUGGET.item()), hasInInventory(NUGGET.item()))
-            .save(output, ResourceLocation.fromNamespaceAndPath(FantasyMetals.MODID, "${INGOT.item().idWithoutNamespace}_from_${NUGGET.item().idWithoutNamespace}"))
+            .save(
+                output,
+                ResourceLocation.fromNamespaceAndPath(
+                    FantasyMetals.MODID,
+                    "${INGOT.item().idWithoutNamespace}_from_${NUGGET.item().idWithoutNamespace}"
+                )
+            )
 
-        for(item in tools.toSet() + combatItems.toSet()) {
+        for (item in tools.toSet() + combatItems.toSet()) {
             basicBlastingAndSmeltingRecipe(item.get(), NUGGET.item(), output)
         }
 
-        for(metalBlock in metalBlocksWithPrefix(prefix)) {
+        for (metalBlock in metalBlocksWithPrefix(prefix)) {
             blockFromItem(metalBlock, INGOT.item(), output)
         }
-        for(rawBlock in rawBlocksWithPrefix(prefix)) {
+        for (rawBlock in rawBlocksWithPrefix(prefix)) {
             blockFromItem(rawBlock, RAW.item(), output)
         }
     }

@@ -19,31 +19,35 @@ import net.teamsolar.fantasy_metals.block.ModBlocks
 import net.teamsolar.fantasy_metals.item.ModItems
 
 
-class ModBlockLootTableProvider(registries: HolderLookup.Provider): BlockLootSubProvider(setOf(), FeatureFlags.REGISTRY.allFlags(), registries),
+class ModBlockLootTableProvider(registries: HolderLookup.Provider) :
+    BlockLootSubProvider(setOf(), FeatureFlags.REGISTRY.allFlags(), registries),
     ModBlockInputHelper {
     override fun generate() {
-        for(block in ModBlocks.METAL_BLOCKS) {
+        for (block in ModBlocks.METAL_BLOCKS) {
             dropSelf(block.get())
         }
-        for(block in ModBlocks.RAW_BLOCKS) {
+        for (block in ModBlocks.RAW_BLOCKS) {
             dropSelf(block.get())
         }
         val metals = setOf(ModItems.MYTHRIL_SET, ModItems.ADAMANT_SET, ModItems.ORICHALCUM_SET, ModItems.CARMOT_SET)
-        for(metalSet in metals) {
-            for(ore in oreBlocksWithPrefix(metalSet.prefix)) {
+        for (metalSet in metals) {
+            for (ore in oreBlocksWithPrefix(metalSet.prefix)) {
                 add(ore.get(), createOreDrops(ore.get(), metalSet.RAW.item()))
             }
         }
-        for(gem in ModItems.GEMS) {
-            for(ore in oreBlocksWithPrefix(gem.prefix)) {
+        for (gem in ModItems.GEMS) {
+            for (ore in oreBlocksWithPrefix(gem.prefix)) {
                 add(ore.get(), createOreDrops(ore.get(), gem.GEM.get()))
             }
         }
     }
+
     override fun getKnownBlocks(): Iterable<Block> {
-        val streamMap = ModBlocks.BLOCKS_REGISTER.entries.stream().map { obj: DeferredHolder<Block, out Block> -> obj.value() }
+        val streamMap =
+            ModBlocks.BLOCKS_REGISTER.entries.stream().map { obj: DeferredHolder<Block, out Block> -> obj.value() }
         return Iterable(streamMap::iterator)
     }
+
     private fun createCopperLikeOreDrops(block: Block, item: Item): LootTable.Builder {
         val registrylookup = registries.lookupOrThrow(Registries.ENCHANTMENT)
         return this.createSilkTouchDispatchTable(
@@ -56,6 +60,7 @@ class ModBlockLootTableProvider(registries: HolderLookup.Provider): BlockLootSub
             ) as LootPoolEntryContainer.Builder<*>
         )
     }
+
     private fun createOreDrops(block: Block, item: Item): LootTable.Builder {
         val registrylookup = registries.lookupOrThrow(Registries.ENCHANTMENT)
         return this.createSilkTouchDispatchTable(

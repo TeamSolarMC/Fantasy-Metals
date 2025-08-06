@@ -14,7 +14,8 @@ import net.teamsolar.fantasy_metals.FantasyMetals
 import net.teamsolar.fantasy_metals.block.ModBlocks
 import net.teamsolar.fantasy_metals.block.RotatedPillarBlockDropsXP
 
-class ModBlockStateProvider(output: PackOutput, exFileHelper: ExistingFileHelper) : BlockStateProvider(output, FantasyMetals.MODID,
+class ModBlockStateProvider(output: PackOutput, exFileHelper: ExistingFileHelper) : BlockStateProvider(
+    output, FantasyMetals.MODID,
     exFileHelper
 ) {
     override fun registerStatesAndModels() {
@@ -23,19 +24,32 @@ class ModBlockStateProvider(output: PackOutput, exFileHelper: ExistingFileHelper
             override val RAW_BLOCKS: List<DeferredBlock<out Block>> = ModBlocks.RAW_BLOCKS
             override val METAL_BLOCKS: List<DeferredBlock<out Block>> = ModBlocks.METAL_BLOCKS
         }
-        for(block in helper.BLOCKS) {
-            val actual = block.get()
-            when (actual) {
+        for (block in helper.BLOCKS) {
+            when (val actual = block.get()) {
                 is RotatedPillarBlockDropsXP -> {
                     val resourceLocation = key(actual)
-                    val side = ResourceLocation.fromNamespaceAndPath(resourceLocation.namespace, "block/" + resourceLocation.path + "_side")
-                    val top = ResourceLocation.fromNamespaceAndPath(resourceLocation.namespace, "block/" + resourceLocation.path + "_top")
+                    val side = ResourceLocation.fromNamespaceAndPath(
+                        resourceLocation.namespace,
+                        "block/" + resourceLocation.path + "_side"
+                    )
+                    val top = ResourceLocation.fromNamespaceAndPath(
+                        resourceLocation.namespace,
+                        "block/" + resourceLocation.path + "_top"
+                    )
                     axisBlock(actual, side, top)
-                    itemModels().withExistingParent(resourceLocation.toString(), ResourceLocation.fromNamespaceAndPath(resourceLocation.namespace, "block/" + resourceLocation.path))
+                    itemModels().withExistingParent(
+                        resourceLocation.toString(),
+                        ResourceLocation.fromNamespaceAndPath(
+                            resourceLocation.namespace,
+                            "block/" + resourceLocation.path
+                        )
+                    )
                 }
+
                 is RotatedPillarBlock -> {
                     axisBlock(actual)
                 }
+
                 else -> {
                     blockWithItem(block)
                 }
@@ -46,6 +60,7 @@ class ModBlockStateProvider(output: PackOutput, exFileHelper: ExistingFileHelper
     private fun blockWithItem(block: DeferredBlock<out Block>) {
         simpleBlockWithItem(block.get(), cubeAll(block.get()))
     }
+
     fun axisBlock(block: RotatedPillarBlockDropsXP, side: ResourceLocation, end: ResourceLocation) {
         axisBlock(
             block,
@@ -53,6 +68,7 @@ class ModBlockStateProvider(output: PackOutput, exFileHelper: ExistingFileHelper
             models().cubeColumnHorizontal(name(block) + "_horizontal", side, end)
         )
     }
+
     fun axisBlock(block: RotatedPillarBlockDropsXP, vertical: ModelFile, horizontal: ModelFile) {
         val builder = getVariantBuilder(block)
             .partialState().with(RotatedPillarBlock.AXIS, Direction.Axis.Y)

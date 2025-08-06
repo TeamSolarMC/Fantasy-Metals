@@ -3,10 +3,8 @@ package net.teamsolar.fantasy_metals.datagen
 import net.minecraft.core.HolderLookup
 import net.minecraft.data.PackOutput
 import net.minecraft.data.tags.IntrinsicHolderTagsProvider
-import net.minecraft.resources.ResourceLocation
 import net.minecraft.tags.BlockTags
 import net.minecraft.tags.TagKey
-import net.minecraft.world.item.Item
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
 import net.neoforged.neoforge.common.Tags
@@ -28,16 +26,17 @@ class ModBlockTagGenerator(
 ) :
     BlockTagsProvider(output, lookupProvider, FantasyMetals.MODID, existingFileHelper) {
     override fun addTags(provider: HolderLookup.Provider) {
-        val providerHelper = object: BlockTagsProviderHelper, ModBlockInputHelper {
+        val providerHelper = object : BlockTagsProviderHelper, ModBlockInputHelper {
             override fun tag(tagKey: TagKey<Block>): IntrinsicTagAppender<Block> = this@ModBlockTagGenerator.tag(tagKey)
             override val ORE_BLOCKS: List<DeferredBlock<out Block>> = ModBlocks.ORE_BLOCKS
             override val RAW_BLOCKS: List<DeferredBlock<out Block>> = ModBlocks.RAW_BLOCKS
             override val METAL_BLOCKS: List<DeferredBlock<out Block>> = ModBlocks.METAL_BLOCKS
         }
+
         fun MetalEquipmentSet.thenAddTags() = providerHelper.addTags()
         fun GemItemSet.thenAddTags() = providerHelper.addTags()
-        fun IntrinsicHolderTagsProvider.IntrinsicTagAppender<Block>.addSet(set: ItemSet) {
-            for(block in providerHelper.blocksWithPrefix(set.prefix)) {
+        fun IntrinsicTagAppender<Block>.addSet(set: ItemSet) {
+            for (block in providerHelper.blocksWithPrefix(set.prefix)) {
                 add(block.get())
             }
         }

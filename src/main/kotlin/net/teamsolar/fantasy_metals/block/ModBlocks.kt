@@ -52,11 +52,14 @@ object ModBlocks {
 
     val BLACK_OPAL_BLOCK = registerBlockAndItem("black_opal_block", gemBlock(0.8f))
     val BLACK_OPAL_ORE = registerBlockAndItem("black_opal_ore", oreBlock(3.0f, xpRange = UniformInt.of(3, 7)))
-    val BASALT_BLACK_OPAL_ORE = registerBlockAndItem("basalt_black_opal_ore",
-        {RotatedPillarBlockDropsXP(
-            BlockBehaviour.Properties.ofLegacyCopy(Blocks.BASALT).requiresCorrectToolForDrops(),
-            UniformInt.of(3, 7)
-        )}
+    val BASALT_BLACK_OPAL_ORE = registerBlockAndItem(
+        "basalt_black_opal_ore",
+        {
+            RotatedPillarBlockDropsXP(
+                BlockBehaviour.Properties.ofLegacyCopy(Blocks.BASALT).requiresCorrectToolForDrops(),
+                UniformInt.of(3, 7)
+            )
+        }
     )
 
     val TSAVORITE_BLOCK = registerBlockAndItem("tsavorite_block", gemBlock(5.0f, 6.0f))
@@ -103,27 +106,41 @@ object ModBlocks {
         TSAVORITE_BLOCK
     )
 
-    private fun metalBlock(strength: Float = 4.0f, blastResistance: Float = strength) = Supplier { Block(
-        BlockBehaviour.Properties.ofLegacyCopy(Blocks.IRON_BLOCK)
-            .strength(strength, blastResistance).requiresCorrectToolForDrops().sound(SoundType.METAL)
-    )}
-    private fun gemBlock(strength: Float = 4.0f, blastResistance: Float = strength) = Supplier { Block(
-        BlockBehaviour.Properties.ofLegacyCopy(Blocks.DIAMOND_BLOCK)
-            .strength(strength, blastResistance).requiresCorrectToolForDrops().sound(SoundType.METAL)
-    )}
-    private fun oreBlock(strength: Float = 4.0f, blastResistance: Float = strength, xpRange: IntProvider = ConstantInt.ZERO) = Supplier { DropExperienceBlock(
-        xpRange,
-        BlockBehaviour.Properties.ofLegacyCopy(Blocks.STONE)
-            .strength(strength, blastResistance).requiresCorrectToolForDrops()
-    )}
-    private fun rawBlock(strength: Float = 4.0f, blastResistance: Float = strength) = Supplier { Block(
-        BlockBehaviour.Properties.ofLegacyCopy(Blocks.RAW_IRON_BLOCK)
-            .strength(strength, blastResistance).requiresCorrectToolForDrops()
-    )}
+    private fun metalBlock(strength: Float = 4.0f, blastResistance: Float = strength) = Supplier {
+        Block(
+            BlockBehaviour.Properties.ofLegacyCopy(Blocks.IRON_BLOCK)
+                .strength(strength, blastResistance).requiresCorrectToolForDrops().sound(SoundType.METAL)
+        )
+    }
 
-    private fun <T: Block> registerBlockAndItem(name: String, block: Supplier<T>): DeferredBlock<T> {
-        return BLOCKS_REGISTER.register(name, block).also {
-                deferredBlock ->
+    private fun gemBlock(strength: Float = 4.0f, blastResistance: Float = strength) = Supplier {
+        Block(
+            BlockBehaviour.Properties.ofLegacyCopy(Blocks.DIAMOND_BLOCK)
+                .strength(strength, blastResistance).requiresCorrectToolForDrops().sound(SoundType.METAL)
+        )
+    }
+
+    private fun oreBlock(
+        strength: Float = 4.0f,
+        blastResistance: Float = strength,
+        xpRange: IntProvider = ConstantInt.ZERO
+    ) = Supplier {
+        DropExperienceBlock(
+            xpRange,
+            BlockBehaviour.Properties.ofLegacyCopy(Blocks.STONE)
+                .strength(strength, blastResistance).requiresCorrectToolForDrops()
+        )
+    }
+
+    private fun rawBlock(strength: Float = 4.0f, blastResistance: Float = strength) = Supplier {
+        Block(
+            BlockBehaviour.Properties.ofLegacyCopy(Blocks.RAW_IRON_BLOCK)
+                .strength(strength, blastResistance).requiresCorrectToolForDrops()
+        )
+    }
+
+    private fun <T : Block> registerBlockAndItem(name: String, block: Supplier<T>): DeferredBlock<T> {
+        return BLOCKS_REGISTER.register(name, block).also { deferredBlock ->
             ModItems.ITEMS_REGISTER.register(name, Supplier { BlockItem(deferredBlock.get(), Item.Properties()) })
         }
     }

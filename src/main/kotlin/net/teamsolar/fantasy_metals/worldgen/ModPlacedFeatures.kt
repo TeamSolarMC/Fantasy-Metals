@@ -27,14 +27,21 @@ object ModPlacedFeatures {
 
     fun bootstrap(context: BootstrapContext<PlacedFeature>) {
         val helper = object : PlacedFeaturesContext {
-            override val configuredFeatures: HolderGetter<ConfiguredFeature<*, *>> = context.lookup(Registries.CONFIGURED_FEATURE)
-            override fun register(placedKey: ResourceKey<PlacedFeature>, oreKey: ResourceKey<ConfiguredFeature<*, *>>, modifiers: List<PlacementModifier>) {
+            override val configuredFeatures: HolderGetter<ConfiguredFeature<*, *>> =
+                context.lookup(Registries.CONFIGURED_FEATURE)
+
+            override fun register(
+                placedKey: ResourceKey<PlacedFeature>,
+                oreKey: ResourceKey<ConfiguredFeature<*, *>>,
+                modifiers: List<PlacementModifier>
+            ) {
                 register(context, placedKey, configuredFeatures.getOrThrow(oreKey), modifiers)
             }
+
             override val context: BootstrapContext<PlacedFeature> = context
         }
-        for((oreName, targets) in ModOregen.getInstanceMaps()) {
-            for(target in targets) {
+        for ((oreName, targets) in ModOregen.getInstanceMaps()) {
+            for (target in targets) {
                 target.placedFeaturesCallback.invoke(helper, target)
             }
         }
@@ -46,7 +53,7 @@ object ModPlacedFeatures {
         }*/
     }
 
-    public fun registerKey(name: String): ResourceKey<PlacedFeature> {
+    fun registerKey(name: String): ResourceKey<PlacedFeature> {
         return ResourceKey.create(
             Registries.PLACED_FEATURE,
             ResourceLocation.fromNamespaceAndPath(FantasyMetals.MODID, name)

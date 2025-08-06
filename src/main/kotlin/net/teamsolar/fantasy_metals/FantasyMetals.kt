@@ -3,10 +3,6 @@ package net.teamsolar.fantasy_metals
 import com.mojang.logging.LogUtils
 import net.minecraft.client.Minecraft
 import net.minecraft.core.registries.BuiltInRegistries
-import net.minecraft.core.registries.Registries
-import net.minecraft.network.chat.Component
-import net.minecraft.world.item.CreativeModeTab
-import net.minecraft.world.item.CreativeModeTab.ItemDisplayParameters
 import net.minecraft.world.item.CreativeModeTabs
 import net.neoforged.api.distmarker.Dist
 import net.neoforged.bus.api.IEventBus
@@ -19,18 +15,14 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent
 import net.neoforged.neoforge.common.NeoForge
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent
 import net.neoforged.neoforge.event.server.ServerStartingEvent
-import net.neoforged.neoforge.registries.DeferredHolder
-import net.neoforged.neoforge.registries.DeferredRegister
 import net.teamsolar.fantasy_metals.block.ModBlocks
-import net.teamsolar.fantasy_metals.item.MetalEquipmentSet
 import net.teamsolar.fantasy_metals.item.ModArmorMaterials
 import net.teamsolar.fantasy_metals.item.ModCreativeModeTabs
 import net.teamsolar.fantasy_metals.item.ModItems
-import java.util.function.Supplier
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(FantasyMetals.MODID)
-class FantasyMetals (modEventBus: IEventBus, modContainer: ModContainer) {
+class FantasyMetals(modEventBus: IEventBus, modContainer: ModContainer) {
     init {
         // Register the commonSetup method for modloading
         modEventBus.addListener(::commonSetup)
@@ -59,6 +51,7 @@ class FantasyMetals (modEventBus: IEventBus, modContainer: ModContainer) {
     companion object {
         // Define mod id in a common place for everything to reference
         const val MODID = "fantasy_metals"
+
         // Directly reference a slf4j logger
         val LOGGER: org.slf4j.Logger = LogUtils.getLogger()
 
@@ -83,16 +76,17 @@ class FantasyMetals (modEventBus: IEventBus, modContainer: ModContainer) {
 
     // Add the example block item to the building blocks tab
     private fun addCreative(event: BuildCreativeModeTabContentsEvent) {
-        when(event.tabKey) {
+        when (event.tabKey) {
             CreativeModeTabs.TOOLS_AND_UTILITIES -> {
                 event.acceptAll(
                     (
-                        ModItems.MYTHRIL_SET.tools
-                            + ModItems.ADAMANT_SET.tools
-                            + ModItems.ORICHALCUM_SET.tools
-                            + ModItems.CARMOT_SET.tools
-                    ).map{it.toStack()})
+                            ModItems.MYTHRIL_SET.tools
+                                    + ModItems.ADAMANT_SET.tools
+                                    + ModItems.ORICHALCUM_SET.tools
+                                    + ModItems.CARMOT_SET.tools
+                            ).map { it.toStack() })
             }
+
             CreativeModeTabs.COMBAT -> {
                 event.acceptAll(
                     (
@@ -100,17 +94,18 @@ class FantasyMetals (modEventBus: IEventBus, modContainer: ModContainer) {
                                     + ModItems.ADAMANT_SET.combatItems
                                     + ModItems.ORICHALCUM_SET.combatItems
                                     + ModItems.CARMOT_SET.combatItems
-                            ).map{it.toStack()})
+                            ).map { it.toStack() })
             }
+
             CreativeModeTabs.INGREDIENTS -> {
                 event.acceptAll(
                     (
-                        ModItems.MYTHRIL_SET.ingredients
-                        + ModItems.ADAMANT_SET.ingredients
-                        + ModItems.ORICHALCUM_SET.ingredients
-                        + ModItems.CARMOT_SET.ingredients
-                    ).map{it.toStack()}.sortedBy { BuiltInRegistries.ITEM.getKey(it.item).path }
-                    + (ModItems.GEMS).map { it.GEM.toStack() }
+                            ModItems.MYTHRIL_SET.ingredients
+                                    + ModItems.ADAMANT_SET.ingredients
+                                    + ModItems.ORICHALCUM_SET.ingredients
+                                    + ModItems.CARMOT_SET.ingredients
+                            ).map { it.toStack() }.sortedBy { BuiltInRegistries.ITEM.getKey(it.item).path }
+                            + (ModItems.GEMS).map { it.GEM.toStack() }
                 )
 
             }
