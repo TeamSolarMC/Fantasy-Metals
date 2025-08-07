@@ -1,9 +1,9 @@
 {
-  "feature": "fantasy_metals:adamant_ore1",
+  "feature": "fantasy_metals:adamant_ore2",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 120
+      "count": 15
     },
     {
       "type": "minecraft:in_square"

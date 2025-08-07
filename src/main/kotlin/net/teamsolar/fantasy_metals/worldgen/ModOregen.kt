@@ -163,7 +163,7 @@ object ModOregen {
         }
         // adamant ore
         run {
-            oregenTarget(
+            /*oregenTarget(
                 "adamant_ore",
                 configuredFeaturesCallback = {
                     endOre(
@@ -221,6 +221,66 @@ object ModOregen {
                     )
                 ),
                 biomeModifierCallback = registerInsideBiomes { HolderSet.direct(it.getOrThrow(Biomes.THE_END)) }
+            )*/
+            oregenTarget(
+                "adamant_ore",
+                uniqueName = "adamant_ore_central_island",
+                configuredFeaturesCallback = {
+                    endOre(
+                        ModBlocks.ADAMANT_ORE,
+                        it.oreKey,
+                        size = 3,
+                        discardChance = 0.65f
+                    )
+                },
+                placedFeaturesCallback = modifier(
+                    rareOrePlacement(
+                        20,
+                        HeightRangePlacement.uniform(
+                            VerticalAnchor.absolute(0),
+                            VerticalAnchor.absolute(80)
+                        )
+                    )
+                ),
+                biomeModifierCallback = registerInsideBiomes { HolderSet.direct(it.getOrThrow(Biomes.THE_END)) }
+            )
+            oregenTarget(
+                "adamant_ore",
+                configuredFeaturesCallback = {
+                    endOre(
+                        ModBlocks.ADAMANT_ORE,
+                        it.oreKey,
+                        size = 3,
+                        discardChance = 0.65f
+                    )
+                },
+                placedFeaturesCallback = modifier(
+                    commonOrePlacement(
+                        15,
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(80))
+                    )
+                ),
+                biomeModifierCallback = registerInsideBiomes(ModTags.Biomes.BIOMES_ADAMANT_GENERATES_NORMALLY_IN)
+            )
+            oregenTarget(
+                "adamant_ore",
+                configuredFeaturesCallback = {
+                    endOre(
+                        ModBlocks.ADAMANT_ORE,
+                        it.oreKey,
+                        size = 3
+                    )
+                },
+                placedFeaturesCallback = modifier(
+                    commonOrePlacement(
+                        24,
+                        HeightRangePlacement.triangle(
+                            VerticalAnchor.bottom(),
+                            VerticalAnchor.aboveBottom(40)
+                        )
+                    )
+                ),
+                biomeModifierCallback = registerInsideBiomes {HolderSet.direct(it.getOrThrow(Biomes.END_HIGHLANDS)) }
             )
         }
         // orichalcum ore
