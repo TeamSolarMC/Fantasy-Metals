@@ -230,12 +230,12 @@ object ModOregen {
                         ModBlocks.ADAMANT_ORE,
                         it.oreKey,
                         size = 3,
-                        discardChance = 0.65f
+                        discardChance = 0.85f
                     )
                 },
                 placedFeaturesCallback = modifier(
                     rareOrePlacement(
-                        20,
+                        10,
                         HeightRangePlacement.uniform(
                             VerticalAnchor.absolute(0),
                             VerticalAnchor.absolute(80)
@@ -256,7 +256,7 @@ object ModOregen {
                 },
                 placedFeaturesCallback = modifier(
                     commonOrePlacement(
-                        15,
+                        5,
                         HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(80))
                     )
                 ),
@@ -273,7 +273,7 @@ object ModOregen {
                 },
                 placedFeaturesCallback = modifier(
                     commonOrePlacement(
-                        24,
+                        8,
                         HeightRangePlacement.triangle(
                             VerticalAnchor.bottom(),
                             VerticalAnchor.aboveBottom(40)
@@ -472,7 +472,7 @@ object ModOregen {
                 },
                 placedFeaturesCallback = modifier(
                     commonOrePlacement(
-                        24,
+                        8,
                         HeightRangePlacement.triangle(
                             VerticalAnchor.bottom(),
                             VerticalAnchor.aboveBottom(40)
